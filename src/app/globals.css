@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: #f6f7fb;
+  --color-foreground: #10131a;
+  --color-muted: rgba(16, 19, 26, 0.62);
+  --color-muted-strong: rgba(16, 19, 26, 0.78);
+  --color-border: rgba(16, 19, 26, 0.12);
+  --color-card: rgba(255, 255, 255, 0.82);
+  --color-accent: #2563eb;
+}
+
+[data-theme="dark"] {
+  --color-background: #07090d;
+  --color-foreground: #f5f6f9;
+  --color-muted: rgba(245, 246, 249, 0.62);
+  --color-muted-strong: rgba(245, 246, 249, 0.82);
+  --color-border: rgba(245, 246, 249, 0.12);
+  --color-card: rgba(14, 18, 26, 0.86);
+  --color-accent: #38bdf8;
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+  --color-muted-strong: var(--color-muted-strong);
+  --color-border: var(--color-border);
+  --color-card: var(--color-card);
+  --color-accent: var(--color-accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+:where(a) {
+  color: inherit;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.25);
+  color: inherit;
+}
