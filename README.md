@@ -34,6 +34,12 @@ npm run start
 ```
 `start` 命令会以生产模式在默认端口运行。
 
+### 导出静态站点
+```bash
+npm run deploy   # 等价于 npm run build && npm run export
+```
+构建结果会位于 `out/` 目录，可直接部署到 GitHub Pages 或任意静态托管服务。
+
 ### 代码质量检查
 ```bash
 npm run lint
@@ -86,3 +92,40 @@ npm run lint
 ## 反馈与迭代
 - 欢迎对内容、布局或数据源提出改进建议。
 - 如果需要扩展更多区块或引入多语言，请保持组件化设计，复用 `LocalizedHeading`、`LocalizedParagraph` 等辅助方法；新增图片请放入 `public/images/` 并在 README 中更新引用说明。
+
+## 部署到 GitHub Pages
+
+1. **设置环境变量**：部署时令 `NEXT_PUBLIC_BASE_PATH=/howagentworks`（名称需与仓库路径一致）。开发环境可不设置或保留空值。
+2. **构建并导出**：执行 `npm run deploy`，静态文件会输出到 `out/` 目录。
+3. **发布**：将 `out/` 内容推送到 `gh-pages` 分支，或使用 GitHub Actions 自动化部署。示例工作流可参考：
+
+   ```yaml
+   name: Deploy to GitHub Pages
+
+   on:
+     push:
+       branches: [main]
+
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v4
+         - uses: actions/setup-node@v4
+           with:
+             node-version: '20'
+             cache: 'npm'
+         - run: npm ci
+         - run: npm run build
+           env:
+             NEXT_PUBLIC_BASE_PATH: /howagentworks
+         - run: npm run export
+           env:
+             NEXT_PUBLIC_BASE_PATH: /howagentworks
+         - uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./out
+   ```
+
+4. **启用 Pages**：在 GitHub → Settings → Pages 中选择 `gh-pages` 分支即可访问 `https://<username>.github.io/howagentworks/`。

@@ -31,7 +31,9 @@ interface AgentNewsFeed {
 
 const THEME_STORAGE_KEY = "howagentworks:theme";
 const LANGUAGE_STORAGE_KEY = "howagentworks:language";
-const NEWS_DATA_PATH = "/data/agent-news.json";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const resolveAssetPath = (path: string) => `${basePath}${path}`.replace(/\/{2,}/g, "/");
+const NEWS_DATA_PATH = resolveAssetPath("/data/agent-news.json");
 
 const newsFallback: AgentNewsFeed = {
   schemaVersion: "2025-01-17",
@@ -722,7 +724,7 @@ function LifecycleDiagram({ language }: { language: Language }) {
   return (
     <figure className="mx-auto mt-10 w-full max-w-3xl">
       <img
-        src="/images/lifecycle.png"
+        src={resolveAssetPath("/images/lifecycle.png")}
         alt={
           language === "zh"
             ? "Agent 从问题到答案的响应流程图"
@@ -816,7 +818,7 @@ export default function HomePage() {
   useEffect(() => {
     let cancelled = false;
 
-    fetch(NEWS_DATA_PATH)
+        fetch(NEWS_DATA_PATH)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Failed to load news feed: ${response.status}`);
@@ -1206,7 +1208,7 @@ export default function HomePage() {
               </div>
               <figure className="mx-auto mt-10 w-full max-w-3xl">
                 <img
-                  src="/images/core.png"
+                  src={resolveAssetPath("/images/core.png")}
                   alt={
                     language === "zh"
                       ? "Agent 核心能力示意图"
@@ -1368,7 +1370,7 @@ export default function HomePage() {
               </div>
               <figure className="mx-auto mt-10 w-full max-w-3xl">
                 <img
-                  src="/images/eco.png"
+                  src={resolveAssetPath("/images/eco.png")}
                   alt={
                     language === "zh"
                       ? "Agent 生态层级示意图"
@@ -1443,7 +1445,7 @@ export default function HomePage() {
               </div>
               <figure className="mx-auto mt-10 w-full max-w-3xl">
                 <img
-                  src="/images/multi_agent.png"
+                  src={resolveAssetPath("/images/multi_agent.png")}
                   alt={
                     language === "zh"
                       ? "多 Agent 协作模式示意图"
