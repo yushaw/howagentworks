@@ -1,12 +1,13 @@
 # HowAgent.works
 
 ## 项目简介
-HowAgent.works 是一个基于 **Next.js 15 + React 19** 的单页站点，用双语（英文 / 中文）讲解现代 AI Agent 的基础原理、工程流水线与生态动态，并通过可配置的数据文件展示最新的行业新闻。
+HowAgent.works 是一个基于 **Next.js 15 + React 19** 的单页站点，用双语（英文 / 中文）讲解现代 AI Agent 的基础原理、工程流水线、多 Agent 协作模式与生态动态，并通过可配置的数据文件展示最新的行业新闻。
 
 ## 核心特性
 - **双语体验**：提供语言切换器，优先读取用户上次选择，其次根据浏览器语言判定，默认使用英文。
 - **浅色 / 深色主题**：内置主题切换，遵循系统偏好并支持手动覆盖。
-- **模块化页面结构**：包括 Hero、核心原理、生命周期管线、生态图谱、实时更新与资源区块。
+- **模块化页面结构**：包括 Hero、核心原理、生命周期管线、生态图谱、多 Agent 协作、实时更新与资源区块。
+- **信息可视化**：核心章节插入 IBM 授权的示意图（核心原理、Agent 生命周期、多 Agent 协作），辅助理解工作流。
 - **自动化新闻源**：前端从 `public/data/agent-news.json` 读取最新快照，可由外部 Agent 定期刷新。
 - **自适应设计**：Tailwind CSS 4 提供的原子化样式确保在桌面和移动端都保持良好布局。
 
@@ -24,7 +25,7 @@ npm install
 ```bash
 npm run dev
 ```
-在浏览器访问 [http://localhost:3000](http://localhost:3000)。修改 `src/app/page.tsx` 或其他文件会触发热更新。
+在浏览器访问 [http://localhost:3000](http://localhost:3000)。页面文本和图片都支持热替换，编辑 `src/app/page.tsx`、`public/images/*.png` 或数据源文件会立即生效。
 
 ### 构建与预览
 ```bash
@@ -43,12 +44,13 @@ npm run lint
 ```
 ├── docs/agent-feed.md        # Agent 新闻 JSON 的结构约定与示例
 ├── public/
-│   └── data/agent-news.json  # 站点渲染所依赖的最新新闻快照
+│   ├── data/agent-news.json  # 站点渲染所依赖的最新新闻快照
+│   └── images/               # 章节示意图（core.png、lifecycle.png、multi_agent.png 等）
 ├── src/app/
 │   ├── globals.css           # 全局样式与主题变量
 │   ├── layout.tsx            # Root layout，设置字体与元信息
 │   ├── not-found.tsx         # 404 页面
-│   └── page.tsx              # 主页面组件
+│   └── page.tsx              # 主页面组件（全部内容与数据加载逻辑）
 ├── package.json
 └── README.md
 ```
@@ -58,6 +60,17 @@ npm run lint
 - 主题优先级：本地存储 → 系统 `prefers-color-scheme` → 浅色默认值。
 - 两个偏好都会持久化在 `localStorage`，键名分别为 `howagentworks:language` 与 `howagentworks:theme`。
 
+## 章节速览
+
+| 区块 | 说明 |
+| ---- | ---- |
+| 核心原理 (Core principles) | 通过卡片讲解感知 / 推理 / 执行三大循环，并展示 `core.png` 图示（来源：IBM AI Agents）。 |
+| Agent 生命周期 (Lifecycle) | 使用 `lifecycle.png` 示意图展示 Query → Thought → Tool → Output → Answer 的闭环，并解释每个阶段的工程要点。 |
+| 生态图谱 (Ecosystem map) | 列出模型、编排、护栏、运维四层生态，并附 `eco.png` 图。 |
+| 多 Agent 协作 (Multi-agent patterns) | 介绍集中式规划、Agent 市场、混合协作三类模式，并配 `multi_agent.png` 示意。 |
+| 实时动态 | 读取 `public/data/agent-news.json` 展示最新 20 条资讯，支持信号、标签、日期等信息。 |
+| 工具与资料 | 对应 `RESOURCE_CATEGORIES`，按主题归类外部文档和工具。 |
+
 ## Agent 如何更新新闻数据
 1. 按 `docs/agent-feed.md` 中的约定生成结构化数据：确保字段包含 `id`、`title`、`summary`、`source`、`publishedAt`、`tags`，以及可选的 `signal`，且所有文案需提供中英文版本。
 2. 将最新 20 条记录写入 `public/data/agent-news.json`，同时更新时间戳 `lastUpdated`（UTC ISO 8601）。
@@ -66,7 +79,10 @@ npm run lint
 
 一旦 JSON 就绪，前端无需额外配置即可自动展示最新内容；构建或运行时读取不到数据时，会回退到仓库中提供的默认快照。
 
+## 图示版权
+- `public/images/core.png`、`lifecycle.png`、`multi_agent.png`、`eco.png` 分别引用自 IBM 的 React Agent / AI Agents / Agentic Architecture 文章。嵌入页面时已通过图注链接注明来源。
+- 如需替换或新增示意图，请保持 3:2 或 4:3 的常规比例，并在相应章节更新图注及来源链接。
+
 ## 反馈与迭代
 - 欢迎对内容、布局或数据源提出改进建议。
-- 如果需要扩展更多区块或引入多语言，请保持组件化设计，复用现有的 `LocalizedHeading` 和 `LocalizedParagraph` 辅助方法。
-
+- 如果需要扩展更多区块或引入多语言，请保持组件化设计，复用 `LocalizedHeading`、`LocalizedParagraph` 等辅助方法；新增图片请放入 `public/images/` 并在 README 中更新引用说明。

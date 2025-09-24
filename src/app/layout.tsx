@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     "agentic workflows",
     "perception planning action",
     "agent news",
-    "bilingual",
   ],
 };
 

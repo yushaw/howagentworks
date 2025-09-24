@@ -102,20 +102,20 @@ const LANGUAGE_LABELS: Record<Language, string> = {
 const HERO_COPY = {
   kicker: {
     en: "Agents demystified",
-    zh: "Agent 基础知识全景",
+    zh: "Agent 基础概览",
   },
   title: {
     en: "How modern AI agents perceive, reason, and act",
-    zh: "现代 AI Agent 如何感知、推理与执行",
+    zh: "AI Agent 如何感知、推理与行动",
   },
   subtitle: {
-    en: "A living guide to agent fundamentals, design trade-offs, and the latest field developments.",
-    zh: "一份覆盖 Agent 基础原理、架构取舍与行业最新动态的持续更新指南。",
+    en: "Think of an agent as a controllable teammate: it reads what you allow, reasons through the request, and takes approved actions. This guide explains how it works, the design trade-offs, and how to run it safely.",
+    zh: "你可以把 Agent 当作一个可控的队友：它会在授权范围内读取信息、进行思考并采取行动。本指南会解释它的核心工作方式、设计上的取舍，以及安全操作的最佳做法。",
   },
   ctas: {
     learn: {
       en: "Learn the fundamentals",
-      zh: "快速了解基础",
+      zh: "了解基础原理",
     },
     updates: {
       en: "See latest updates",
@@ -127,23 +127,27 @@ const HERO_COPY = {
 const NAV_LINKS: Array<{ href: string; label: LocalizedText }> = [
   {
     href: "#principles",
-    label: { en: "Principles", zh: "核心原理" },
+    label: { en: "Agent 101", zh: "入门原理" },
   },
   {
     href: "#pipeline",
-    label: { en: "Pipeline", zh: "生命周期" },
+    label: { en: "How it works", zh: "运行流程" },
   },
   {
     href: "#ecosystem",
     label: { en: "Ecosystem", zh: "生态图谱" },
   },
   {
-    href: "#updates",
-    label: { en: "Updates", zh: "最新动态" },
+    href: "#collaboration",
+    label: { en: "Multi-agent", zh: "协作编排" },
   },
   {
     href: "#resources",
     label: { en: "Resources", zh: "工具与资料" },
+  },
+  {
+    href: "#updates",
+    label: { en: "Updates", zh: "最新动态" },
   },
 ];
 
@@ -160,18 +164,18 @@ const HERO_PILLARS: Array<{
     badge: "01",
     title: { en: "Perceive first", zh: "先感知" },
     blurb: {
-      en: "Capture context signals, normalize state, and build ground truth before acting.",
-      zh: "先采集上下文信号并归一化状态，为后续行动奠定可信事实。",
+      en: "Establish facts from documents, APIs, or the screen before planning or acting.",
+      zh: "在规划或行动前，先从文档、API 或界面获取信息，建立对事实的认知。",
     },
   },
   {
     key: "reason",
     anchor: "#principle-reason",
     badge: "02",
-    title: { en: "Reason deeply", zh: "深度推理" },
+    title: { en: "Reason simply, then deeply", zh: "先简单规划，再深入思考" },
     blurb: {
-      en: "Blend heuristics with deliberate loops so the plan stands up to ambiguity.",
-      zh: "结合启发式与反思闭环，在不确定环境中保持规划稳健。",
+      en: "Begin with a minimal plan; add deliberate loops for ambiguous or long tasks.",
+      zh: "先制定一个简单的初步计划；当任务复杂或不确定性高时，再进行更深入的思考与规划。",
     },
   },
   {
@@ -180,8 +184,8 @@ const HERO_PILLARS: Array<{
     badge: "03",
     title: { en: "Act safely", zh: "安全执行" },
     blurb: {
-      en: "Instrument every tool call, log intent, and close the loop with evaluation.",
-      zh: "为每次工具调用加上观测，记录意图，并用评估闭合循环。",
+      en: "Each tool call carries intent, scoped permissions, logging, and rollback.",
+      zh: "每次调用工具都要明确意图、限制权限，并记录日志且具备回滚能力。",
     },
   },
   {
@@ -190,8 +194,8 @@ const HERO_PILLARS: Array<{
     badge: "04",
     title: { en: "Operate continuously", zh: "持续运维" },
     blurb: {
-      en: "Stand up a resilient pipeline that retrains memories and keeps humans informed.",
-      zh: "构建稳健流水线，持续刷新记忆并让人类掌握状态。",
+      en: "Maintain observability and human oversight; refresh memories on schedule.",
+      zh: "保持系统的可观测性和人工监督，并按计划更新与维护 Agent 的记忆。",
     },
   },
 ];
@@ -203,42 +207,50 @@ const SECTION_GUIDE: Array<{
 }> = [
   {
     id: "principles",
-    label: { en: "Principles", zh: "核心原理" },
+    label: { en: "Agent 101", zh: "入门原理" },
     summary: {
-      en: "Perception, reasoning, and action loops at a glance.",
-      zh: "感知、推理、执行的闭环概览。",
+      en: "Perceive → plan → act → learn: the essential loop.",
+      zh: "感知→规划→执行→学习：基础闭环。",
     },
   },
   {
     id: "pipeline",
-    label: { en: "Pipeline", zh: "生命周期" },
+    label: { en: "How it works", zh: "运行流程" },
     summary: {
-      en: "The end-to-end flow that keeps agents reliable.",
-      zh: "保证 Agent 可靠运行的端到端流程。",
+      en: "An end-to-end pipeline designed for reliability and reversibility.",
+      zh: "面向可靠与可回退的端到端流程。",
     },
   },
   {
     id: "ecosystem",
     label: { en: "Ecosystem", zh: "生态图谱" },
     summary: {
-      en: "Key platform and tooling layers to ship faster.",
-      zh: "支撑快速交付的关键平台与工具层。",
+      en: "Key layers: models & reasoning, orchestration, guardrails, observability.",
+      zh: "关键特性：模型与推理、编排、护栏、可观测性。",
     },
   },
   {
-    id: "updates",
-    label: { en: "Updates", zh: "最新动态" },
+    id: "collaboration",
+    label: { en: "Multi-agent", zh: "协作编排" },
     summary: {
-      en: "Live intel feed covering models, policy, and research.",
-      zh: "涵盖模型、政策与研究的实时情报。",
+      en: "Patterns for routing intent across multiple agents and human teammates.",
+      zh: "在多 Agent 与人工协作者之间分配意图的常见模式。",
     },
   },
   {
     id: "resources",
     label: { en: "Resources", zh: "工具与资料" },
     summary: {
-      en: "Playbooks and references for responsible rollout.",
-      zh: "支撑负责任落地的实践手册与资料。",
+      en: "Durable references and templates for responsible delivery.",
+      zh: "可长期依赖的资料与模板，支撑稳健落地。",
+    },
+  },
+  {
+    id: "updates",
+    label: { en: "Updates", zh: "最新动态" },
+    summary: {
+      en: "A curated feed of product, protocol, and benchmark updates.",
+      zh: "涵盖产品、协议与基准更新的精选订阅。",
     },
   },
 ];
@@ -254,21 +266,21 @@ const PIPELINE_CALLOUTS: Array<{
     key: "guardrails",
     tag: { en: "Safeguards", zh: "安全护栏" },
     title: {
-      en: "Build rollback paths before the first action fires",
-      zh: "在首次执行前就预留回滚路径",
+      en: "Define rollback paths before the first action",
+      zh: "在首次执行前定义回滚路径",
     },
     description: {
-      en: "Treat observability, approvals, and scoped permissions as first-class steps in the pipeline.",
-      zh: "将可观测性、审批与权限范围视为流水线中的一等公民。",
+      en: "Treat approvals, permission scopes, and tracing as first-class pipeline steps.",
+      zh: "应将人工审批、权限范围和操作追踪视为流程中的首要环节。",
     },
     bullets: [
       {
-        en: "Dual-write audit logs with human readable summaries.",
-        zh: "双写审计日志并保留可读摘要。",
+        en: "Dual-write audit logs with human-readable summaries.",
+        zh: "记录审计日志，并附带易于理解的摘要。",
       },
       {
-        en: "Escalate long-running tasks to human review after defined thresholds.",
-        zh: "长耗时任务超过阈值时自动升级人工复核。",
+        en: "Escalate long-running or high-risk tasks to human review.",
+        zh: "对于耗时长或风险高的任务，应交由人工审核。",
       },
     ],
   },
@@ -276,35 +288,36 @@ const PIPELINE_CALLOUTS: Array<{
     key: "feedback",
     tag: { en: "Feedback", zh: "反馈回路" },
     title: {
-      en: "Instrument learning loops as carefully as execution",
-      zh: "像对待执行一样精细地监控学习闭环",
+      en: "Instrument learning with the same rigor as execution",
+      zh: "像监控执行一样严格地监控学习过程",
     },
     description: {
-      en: "Without structured retros, agent memories drift and regressions sneak in unnoticed.",
-      zh: "若缺少结构化复盘，Agent 记忆会逐渐漂移，回归不会被及时发现。",
+      en: "Without structured retrospectives, memories drift and regressions persist.",
+      zh: "如果缺少系统性的复盘，Agent 的记忆会出错，程序缺陷也难以被发现。",
     },
     bullets: [
       {
-        en: "Schedule automated eval suites tied to production transcripts.",
-        zh: "基于生产对话日志，定期运行自动化评测套件。",
+        en: "Run automated evals tied to production transcripts.",
+        zh: "基于生产日志定期运行自动化评测。",
       },
       {
-        en: "Feed human feedback into retraining without skipping conflict resolution.",
-        zh: "引入人工反馈时，要保留冲突消解流程。",
+        en: "Ingest human feedback with conflict resolution steps.",
+        zh: "引入人工反馈时，需要有解决意见冲突的流程。",
       },
     ],
   },
 ];
 
 const HEADER_TAGLINE: LocalizedText = {
-  en: "Agents, explained continuously",
-  zh: "持续更新的 Agent 指南",
+  en: "Agents, explained clearly (and safely)",
+  zh: "清晰且安全地理解 Agent",
 };
 
 const THEME_BUTTON_TEXT: Record<ThemeMode, LocalizedText> = {
   light: { en: "Light", zh: "浅色" },
   dark: { en: "Dark", zh: "深色" },
 };
+
 
 const CORE_PRINCIPLES: Array<{
   key: string;
@@ -318,17 +331,17 @@ const CORE_PRINCIPLES: Array<{
     accent: "from-sky-400/90 to-blue-500/80",
     title: { en: "Perceive", zh: "感知" },
     description: {
-      en: "Agents collect structured and unstructured signals to understand context before they act.",
-      zh: "Agent 通过采集结构化与非结构化信号来建立上下文认知，为后续动作做准备。",
+      en: "Acquire context from search, APIs, files, or the screen; materialize a working memory.",
+      zh: "通过搜索、API、文件或屏幕内容获取信息，并构建工作记忆。",
     },
     bullets: [
       {
-        en: "Retrieval pipelines, API ingestion, and sensor streams feed the working memory.",
-        zh: "检索、API 写入与传感器数据共同构建工作记忆。",
+        en: "Hydrate memory via retrieval/APIs/sensors.",
+        zh: "用检索、API、传感器补全记忆。",
       },
       {
-        en: "State normalization ensures downstream reasoning stays grounded and auditable.",
-        zh: "状态归一化让后续推理更可追踪、更可信。",
+        en: "Normalize state for grounded and auditable reasoning.",
+        zh: "对信息做标准化处理，确保后续推理有据可查、便于审计。",
       },
     ],
   },
@@ -337,17 +350,17 @@ const CORE_PRINCIPLES: Array<{
     accent: "from-violet-400/90 to-fuchsia-500/80",
     title: { en: "Reason", zh: "推理" },
     description: {
-      en: "Planning loops translate goals into executable steps while managing uncertainty.",
-      zh: "规划闭环将目标拆解为可执行步骤，并在不确定性中保持稳健。",
+      en: "Translate goals into steps; combine heuristics with deliberate loops as needed.",
+      zh: "把目标拆解成具体步骤；根据需要结合快速经验判断和深入思考。",
     },
     bullets: [
       {
-        en: "Blend fast heuristics with deliberate tool-using reflections.",
-        zh: "结合快速启发式与深度反思式的工具调用策略。",
+        en: "Mix fast heuristics with tool-using reflections.",
+        zh: "将快速启发式与工具化反思相结合。",
       },
       {
-        en: "Guardrails mitigate hallucinations, overreach, and compounding errors.",
-        zh: "通过护栏机制降低幻觉、越权与错误累积。",
+        en: "Use guardrails to prevent overreach and error accumulation.",
+        zh: "以护栏抑制越权与错误累积。",
       },
     ],
   },
@@ -356,17 +369,17 @@ const CORE_PRINCIPLES: Array<{
     accent: "from-emerald-400/90 to-teal-500/80",
     title: { en: "Act", zh: "执行" },
     description: {
-      en: "Actions call tools, trigger automations, and close the observation loop with feedback.",
-      zh: "执行阶段调用工具、触发自动化，并用反馈闭合整个观察环路。",
+      en: "Invoke tools/services with explicit intent and scoped permissions; trace all steps.",
+      zh: "以明确意图与限定权限调用工具/服务，并全程记录追踪。",
     },
     bullets: [
       {
-        en: "Transaction logs and rollbacks keep systems safe under autonomy.",
-        zh: "交易日志与回滚能力保障自治执行的安全边界。",
+        en: "Transaction logs and rollbacks bound autonomy.",
+        zh: "通过操作日志与回滚能力来约束 Agent 的自主范围。",
       },
       {
-        en: "Evaluate outcomes to promote self-improvement and human trust.",
-        zh: "对结果进行评估，驱动自我改进并增强人类信任。",
+        en: "Evaluate outcomes to improve reliability and trust.",
+        zh: "通过结果评估提升可靠性与信任。",
       },
     ],
   },
@@ -382,20 +395,20 @@ const PIPELINE_STEPS: Array<{
     id: "ingest",
     title: { en: "Ingest", zh: "预处理" },
     detail: {
-      en: "Collect domain knowledge, live signals, and constraints; hydrate episodic and semantic memories.",
-      zh: "收集领域知识、实时信号与约束条件，填充情景记忆与语义记忆。",
+      en: "Collect domain knowledge, live signals, and constraints; hydrate episodic and semantic memories with clear TTLs.",
+      zh: "收集领域知识、实时数据和约束条件；为情景和语义记忆补充信息，并明确有效期限 (TTL)。",
     },
     artifact: {
       en: "Knowledge base, connectors, data contracts",
-      zh: "知识库、数据连接器、数据契约",
+      zh: "知识库、连接器、数据契约",
     },
   },
   {
     id: "plan",
     title: { en: "Plan", zh: "规划" },
     detail: {
-      en: "Translate goals into task graphs, assign tools, and simulate outcomes before committing.",
-      zh: "将目标转化为任务图，分配工具并在执行前进行结果预演。",
+      en: "Draft a task graph, assign tools, simulate risky steps, and establish approvals/limits.",
+      zh: "生成任务图、分配工具，对高风险步骤进行预演，并设置审批与限制。",
     },
     artifact: {
       en: "Task graph, guardrail policy, evaluation hooks",
@@ -406,8 +419,8 @@ const PIPELINE_STEPS: Array<{
     id: "act",
     title: { en: "Act", zh: "执行" },
     detail: {
-      en: "Call tools, orchestrate services, and capture telemetry for traceability.",
-      zh: "调用工具、编排服务，并记录遥测数据用于追踪。",
+      en: "Run steps with tracing; stream outputs; each call includes intent, scope, and rollback.",
+      zh: "在全程追踪下执行并实时输出；每次调用都需包含意图、权限范围和回滚机制。",
     },
     artifact: {
       en: "Tool adapters, workflow runners, audit log",
@@ -418,8 +431,8 @@ const PIPELINE_STEPS: Array<{
     id: "learn",
     title: { en: "Learn", zh: "学习" },
     detail: {
-      en: "Evaluate results, refresh memories, and decide whether to escalate to humans.",
-      zh: "评估结果、刷新记忆，并决定是否升级到人工处理。",
+      en: "Score outcomes, refresh memories, correct drifts, and escalate when confidence is low.",
+      zh: "评估任务结果、更新记忆、修正偏差；当系统信心不足时转交人工处理。",
     },
     artifact: {
       en: "Offline evaluation, memory compaction, feedback loops",
@@ -436,113 +449,210 @@ const ECOSYSTEM_PILLARS: Array<{
   {
     name: { en: "Foundation & Reasoning", zh: "基础模型与推理" },
     summary: {
-      en: "Model choice defines reasoning depth, latency, and the cost envelope of your agent.",
-      zh: "模型的选择直接决定 Agent 的推理深度、延迟与成本区间。",
+      en: "Model choice determines depth, latency, and cost; reserve stronger models for hard steps.",
+      zh: "模型选择决定推理深度、时延与成本；将强模型用于关键难点。",
     },
     items: [
-      {
-        en: "Frontier models (o-series, Claude 3.x, Gemini) and compact distillations",
-        zh: "前沿模型（o 系列、Claude 3.x、Gemini）与轻量蒸馏模型",
-      },
-      {
-        en: "Structured reasoning toolkits for multi-step plans",
-        zh: "用于多步规划的结构化推理工具集",
-      },
+      { en: "Frontier & compact models; structured multi-step reasoning", zh: "前沿与小型模型；结构化多步推理" },
+      { en: "Select via task-level evaluations, not hype", zh: "以任务级评测为依据进行选型" },
     ],
   },
   {
     name: { en: "Orchestration", zh: "编排框架" },
     summary: {
-      en: "Frameworks coordinate memories, tools, and safety layers to deliver reliable outcomes.",
-      zh: "编排框架负责协调记忆、工具与安全层以输出可靠结果。",
+      en: "Coordinate memory, tools, and state; prefer stateful graphs and resumable runs.",
+      zh: "协调记忆、工具与状态；优先采用有状态的图式编排与可恢复运行。",
     },
     items: [
-      {
-        en: "LangChain, LlamaIndex, OpenAI Realtime, custom DAG executors",
-        zh: "LangChain、LlamaIndex、OpenAI Realtime、自定义 DAG 执行器",
-      },
-      {
-        en: "State stores, vector memories, policy engines",
-        zh: "状态存储、向量记忆、策略引擎",
-      },
+      { en: "Stateful graphs; open tool protocols (e.g., MCP)", zh: "有状态图式；开放工具协议（如 MCP）" },
+      { en: "Policies/permissions and traces as first-class concerns", zh: "策略/权限与追踪作为一等关注点" },
     ],
   },
   {
     name: { en: "Safety & Governance", zh: "安全与治理" },
     summary: {
-      en: "Define boundaries, escalation paths, and observability for autonomous behaviour.",
-      zh: "为自治行为设定边界、升级路径与可观测性。",
+      en: "Define boundaries and approvals; implement programmable guardrails.",
+      zh: "明确边界与审批；使用可编程护栏落地管控。",
     },
     items: [
-      {
-        en: "Content filters, rate guardians, permission systems",
-        zh: "内容过滤、速率守卫、权限系统",
-      },
-      {
-        en: "Red teaming, automated evaluations, human-in-the-loop checkpoints",
-        zh: "红队测试、自动化评估、人工介入检查点",
-      },
+      { en: "Guardrails (e.g., Colang), rate limits, content filters", zh: "护栏（如 Colang）、限流与内容过滤" },
+      { en: "Human checkpoints for high-risk actions", zh: "高风险操作配置人工检查点" },
     ],
   },
   {
     name: { en: "Deployment & Operations", zh: "部署与运维" },
     summary: {
-      en: "Reliable agents need observability, versioning, and a human-aligned feedback loop.",
-      zh: "要让 Agent 可靠运行，需要观测、版本管理与对齐人类的反馈闭环。",
+      en: "Operate like software: tracing, evaluations, canaries, and rollback.",
+      zh: "以软件化方式运营：追踪、评测、金丝雀发布与回退。",
     },
     items: [
-      {
-        en: "Eval harnesses, canary releases, rollback-aware workflows",
-        zh: "评测工具、金丝雀发布、支持回滚的工作流",
-      },
-      {
-        en: "Usage analytics, cost dashboards, live tuning",
-        zh: "使用分析、成本看板、在线调参",
-      },
+      { en: "Observability platforms; dataset-based evaluations", zh: "可观测平台；基于数据集的评测" },
+      { en: "Cost/latency dashboards and continuous improvement", zh: "成本/时延看板与持续改进" },
     ],
   },
 ];
 
-const RESOURCE_LINKS: Array<{
-  title: LocalizedText;
-  description: LocalizedText;
-  href: string;
+const RESOURCE_CATEGORIES: Array<{
+  name: LocalizedText;
+  items: Array<{
+    title: LocalizedText;
+    description: LocalizedText;
+    href: string;
+  }>;
 }> = [
   {
-    title: {
-      en: "Agent orchestration templates",
-      zh: "Agent 编排模板",
+    name: {
+      en: "Protocols & Core APIs",
+      zh: "协议与核心 API",
     },
-    description: {
-      en: "Starter projects that blend tool use, memory, and guardrails for production environments.",
-      zh: "整合工具调用、记忆与护栏的生产级入门模板。",
-    },
-    href: "https://github.com",
+    items: [
+      {
+        title: { en: "Model Context Protocol (MCP)", zh: "Model Context Protocol（MCP）" },
+        description: {
+          en: "Open protocol for connecting agents to tools, data, and workflows. Canonical spec & docs.",
+          zh: "连接 Agent 与工具、数据与工作流的开放协议；权威规范与文档。",
+        },
+        href: "https://modelcontextprotocol.io",
+      },
+      {
+        title: { en: "OpenAI Responses API", zh: "OpenAI Responses API（Agent 构建）" },
+        description: {
+          en: "Official API for building agentic apps with built-in tools (web/computer/file search) and tracing.",
+          zh: "用于构建具备内置工具与追踪评估的 Agent 应用的官方接口。",
+        },
+        href: "https://platform.openai.com/docs/api-reference/responses",
+      },
+      {
+        title: { en: "Claude Tool Use & MCP", zh: "Claude 工具使用与 MCP" },
+        description: {
+          en: "Developer guide to implement tools and integrate MCP with Claude agents.",
+          zh: "面向开发者的工具实现指南与 MCP 集成方法。",
+        },
+        href: "https://docs.claude.com/en/docs/agents-and-tools/tool-use",
+      },
+    ],
   },
   {
-    title: {
-      en: "Evaluation playbooks",
-      zh: "评估作战手册",
+    name: {
+      en: "Platforms & Orchestration",
+      zh: "平台与编排",
     },
-    description: {
-      en: "Design experiments to stress-test autonomy before a wide rollout.",
-      zh: "在大规模发布前，通过实验验证自治能力的边界。",
-    },
-    href: "https://evals.dev",
+    items: [
+      {
+        title: { en: "Agent Development Kit (ADK)", zh: "Google Agent Development Kit（ADK）" },
+        description: {
+          en: "Model-agnostic framework and docs for engineering agentic architectures.",
+          zh: "面向工程化 Agent 架构的模型无关框架与文档。",
+        },
+        href: "https://google.github.io/adk-docs/",
+      },
+      {
+        title: { en: "LangGraph Docs", zh: "LangGraph 文档（有状态 Agent 编排）" },
+        description: {
+          en: "Stateful orchestration, graph-based control, persistence, and human-in-the-loop patterns.",
+          zh: "面向有状态编排的图式控制、持久化与人机协同模式。",
+        },
+        href: "https://langchain-ai.github.io/langgraph/",
+      },
+      {
+        title: { en: "Microsoft AutoGen", zh: "Microsoft AutoGen（多 Agent 框架）" },
+        description: {
+          en: "Open-source framework for single/multi-agent workflows with tool use and human-in-the-loop.",
+          zh: "开源多 Agent 框架，支持工具调用与人参与的工作流。",
+        },
+        href: "https://microsoft.github.io/autogen/stable/",
+      },
+      {
+        title: { en: "Vertex AI Agent Builder", zh: "Google Vertex AI Agent Builder" },
+        description: {
+          en: "Google Cloud’s suite for building and deploying enterprise-grade multi-agent systems.",
+          zh: "Google Cloud 面向企业的多 Agent 构建与部署套件与文档。",
+        },
+        href: "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview",
+      },
+    ],
   },
   {
-    title: {
-      en: "Guardrail design patterns",
-      zh: "护栏设计模式",
+    name: {
+      en: "Safety & Observability",
+      zh: "安全与可观测性",
     },
-    description: {
-      en: "Practical examples of policy engines, approval gates, and runtime monitors.",
-      zh: "策略引擎、审批闸口与运行时监控的实战案例。",
+    items: [
+      {
+        title: { en: "NVIDIA NeMo Guardrails", zh: "NVIDIA NeMo Guardrails（护栏）" },
+        description: {
+          en: "Programmable guardrails (Colang) to constrain agent behaviors and add safety policies.",
+          zh: "可编程护栏（Colang）以约束 Agent 行为并施加安全策略。",
+        },
+        href: "https://docs.nvidia.com/nemo-guardrails/index.html",
+      },
+      {
+        title: { en: "LangSmith — Evaluations & Tracing", zh: "LangSmith — 评测与追踪" },
+        description: {
+          en: "Agent observability, dataset-based evals, and LLM-as-judge evaluators with rich docs.",
+          zh: "Agent 可观测性、基于数据集的评测与 LLM 裁判评估的完整文档。",
+        },
+        href: "https://docs.langchain.com/langsmith/evaluation",
+      },
+      {
+        title: { en: "W&B Weave — Agent Observability", zh: "Weights & Biases Weave — Agent 可观测性" },
+        description: {
+          en: "Docs for tracing, evaluations, and production monitoring of agentic applications.",
+          zh: "关于 Agent 应用追踪、评测与生产监控的官方文档。",
+        },
+        href: "https://weave-docs.wandb.ai/",
+      },
+      {
+        title: { en: "Arize Phoenix — LLM Observability", zh: "Arize Phoenix — LLM 可观测性" },
+        description: {
+          en: "Open-source tracing & evaluation platform with integrations for OpenAI Agents SDK.",
+          zh: "开源追踪与评估平台，已适配 OpenAI Agents SDK 等生态。",
+        },
+        href: "https://arize.com/docs/phoenix",
+      },
+    ],
+  },
+  {
+    name: {
+      en: "Benchmarks & Evaluation Suites",
+      zh: "基准与评测套件",
     },
-    href: "https://alignment.dev",
+    items: [
+      {
+        title: { en: "BrowseComp Benchmark", zh: "BrowseComp 基准（网页浏览 Agent）" },
+        description: {
+          en: "OpenAI’s 1,266-task benchmark for browsing agents with paper and leaderboard links.",
+          zh: "OpenAI 发布的 1,266 任务网页浏览 Agent 基准（含论文/榜单）。",
+        },
+        href: "https://openai.com/index/browsecomp/",
+      },
+      {
+        title: { en: "WebArena", zh: "WebArena（真实网页环境）" },
+        description: {
+          en: "Interactive benchmark covering realistic web navigation and productivity tasks.",
+          zh: "覆盖真实网页导航与生产力任务的互动基准。",
+        },
+        href: "https://webarena.dev/",
+      },
+      {
+        title: { en: "OSWorld", zh: "OSWorld（真实操作系统任务）" },
+        description: {
+          en: "369 real computer tasks across OS/desktop apps with execution-based evaluation.",
+          zh: "覆盖多类桌面应用与操作系统的真实任务集，支持执行式评估。",
+        },
+        href: "https://os-world.github.io/",
+      },
+      {
+        title: { en: "DSBench (ICLR 2025)", zh: "DSBench（ICLR 2025 数据科学 Agent 基准）" },
+        description: {
+          en: "Comprehensive agent benchmark for realistic data science workflows.",
+          zh: "面向真实数据科学流程的综合 Agent 基准。",
+        },
+        href: "https://openreview.net/forum?id=DSsSPr0RZJ",
+      },
+    ],
   },
 ];
-
 const cn = (...classes: Array<string | false | null | undefined>) =>
   classes.filter(Boolean).join(" ");
 
@@ -586,17 +696,56 @@ function LocalizedParagraph({
 
 function formatDateLabel(iso: string, language: Language) {
   const date = new Date(iso);
-  const en = new Intl.DateTimeFormat("en-US", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date);
-  const zh = new Intl.DateTimeFormat("zh-CN", {
-    dateStyle: "medium",
-    timeStyle: "short",
-  }).format(date);
+  const currentYear = new Date().getFullYear();
+  const yearMatches = date.getFullYear() === currentYear;
 
-  return language === "en" ? en : zh;
+  if (language === "en") {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      ...(yearMatches ? {} : { year: "numeric" }),
+    });
+    return formatter.format(date);
+  }
+
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  if (yearMatches) {
+    return `${month}月${day}日`;
+  }
+
+  return `${date.getFullYear()}年${month}月${day}日`;
 }
+
+function LifecycleDiagram({ language }: { language: Language }) {
+  return (
+    <figure className="mx-auto mt-10 w-full max-w-3xl">
+      <img
+        src="/images/lifecycle.png"
+        alt={
+          language === "zh"
+            ? "Agent 从问题到答案的响应流程图"
+            : "Diagram showing agent flow from query to answer"
+        }
+        className="w-full rounded-2xl object-contain"
+      />
+      <figcaption className="mt-3 text-center text-xs text-[color:var(--color-muted)]">
+        <a
+          href="https://www.ibm.com/think/topics/react-agent#1287801558"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-semibold text-[color:var(--color-muted-strong)] underline-offset-2 hover:underline"
+        >
+          {language === "zh"
+            ? "图示来源：IBM React Agent 介绍"
+            : "Source: IBM React Agent overview"}
+        </a>
+      </figcaption>
+    </figure>
+  );
+}
+
 
 export default function HomePage() {
   const [theme, setTheme] = useState<ThemeMode>("light");
@@ -826,7 +975,7 @@ export default function HomePage() {
             <div className="flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-sky-400/70 via-blue-500/60 to-purple-500/70 text-white font-semibold tracking-wide shadow-lg">
               HAW
             </div>
-            <div className="flex flex-col">
+            <div className="hidden flex-col sm:flex">
               <span className="text-sm font-semibold uppercase tracking-[0.2em]">HowAgent.works</span>
               <span className="text-xs text-[color:var(--color-muted)]">
                 {language === "zh"
@@ -908,7 +1057,10 @@ export default function HomePage() {
             <LocalizedHeading
               text={HERO_COPY.title}
               language={language}
-              className="mt-6 w-full text-balance text-center text-4xl font-semibold leading-tight tracking-tight sm:text-left md:text-5xl lg:text-6xl"
+              className={cn(
+                "mt-6 w-full text-balance text-center text-4xl font-semibold leading-tight tracking-tight sm:text-left md:text-5xl lg:text-6xl",
+                language === "zh" && "break-keep",
+              )}
             />
 
             <LocalizedParagraph
@@ -1004,7 +1156,7 @@ export default function HomePage() {
           ))}
         </nav>
 
-        <div className="mx-auto mt-12 grid w-full max-w-[1340px] gap-12 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] lg:items-start xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
+        <div className="mx-auto mt-12 grid w-full max-w-[1340px] gap-10 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] lg:items-start xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
           <aside
             ref={sectionRailRef}
             className="sticky top-32 hidden flex-col gap-6 rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/80 p-6 text-sm text-[color:var(--color-muted)] shadow-sm lg:flex"
@@ -1037,8 +1189,8 @@ export default function HomePage() {
               ))}
             </div>
           </aside>
-          <div className="space-y-24 lg:space-y-28 lg:pl-2 xl:pl-6">
-            <section id="principles" className="mx-auto flex w-full max-w-[1100px] flex-col gap-12 py-20 lg:mx-0 lg:max-w-none">
+          <div className="space-y-20 lg:space-y-24 lg:pl-2 xl:pl-6">
+            <section id="principles" className="mx-auto flex w-full max-w-[1100px] flex-col gap-10 py-16 lg:mx-0 lg:max-w-none">
               <div className="flex flex-col gap-4 text-center">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
                   {language === "zh" ? "核心原理" : "Core principles"}
@@ -1046,12 +1198,35 @@ export default function HomePage() {
                 <LocalizedHeading
                   text={{
                     en: "Three loops power every successful agent",
-                    zh: "成功 Agent 的三大循环",
+                    zh: "Agent 核心的三大循环",
                   }}
                   language={language}
                   className="text-3xl font-semibold"
                 />
               </div>
+              <figure className="mx-auto mt-10 w-full max-w-3xl">
+                <img
+                  src="/images/core.png"
+                  alt={
+                    language === "zh"
+                      ? "Agent 核心能力示意图"
+                      : "Diagram of core agent capabilities"
+                  }
+                  className="w-full rounded-2xl object-contain"
+                />
+                <figcaption className="mt-3 text-center text-xs text-[color:var(--color-muted)]">
+                  <a
+                    href="https://www.ibm.com/think/topics/ai-agents#7281535"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[color:var(--color-muted-strong)] underline-offset-2 hover:underline"
+                  >
+                    {language === "zh"
+                      ? "图示来源：IBM AI Agents 主题页"
+                      : "Source: IBM AI Agents overview"}
+                  </a>
+                </figcaption>
+              </figure>
               <div className="grid gap-8 md:grid-cols-3">
                 {CORE_PRINCIPLES.map((principle) => (
                   <article
@@ -1093,7 +1268,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id="pipeline" className="mx-auto w-full max-w-[1100px] py-20 lg:mx-0 lg:max-w-none">
+            <section id="pipeline" className="mx-auto w-full max-w-[1100px] py-16 lg:mx-0 lg:max-w-none">
               <div className="flex flex-col gap-4 text-center">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
                   {language === "zh" ? "Agent 生命周期" : "Agent lifecycle"}
@@ -1101,22 +1276,29 @@ export default function HomePage() {
                 <LocalizedHeading
                   text={{
                     en: "A resilient pipeline keeps perception, planning, and action honest",
-                    zh: "稳健的流水线让感知、规划与执行保持可信",
+                    zh: "稳健的流水线让感知、规划与执行更可靠",
                   }}
                   language={language}
                   className="text-3xl font-semibold"
                 />
               </div>
+              <LifecycleDiagram language={language} />
               <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] xl:gap-12">
-                <div className="space-y-6">
+                <div className="relative flex flex-col gap-6 sm:pl-7 lg:pl-10">
+                  <span className="absolute inset-y-6 left-3 hidden w-px bg-[color:var(--color-border)]/80 sm:block lg:left-4" aria-hidden="true" />
                   {PIPELINE_STEPS.map((step, index) => (
-                    <div
+                    <article
                       key={step.id}
-                      className="flex items-start gap-5 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                      className="relative flex flex-col items-center gap-5 rounded-3xl border border-[color:var(--color-border)] bg-gradient-to-br from-[color:var(--color-card)] to-[color:var(--color-card)]/60 p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:flex-row sm:items-start sm:text-left"
                     >
-                      <span className="flex size-11 items-center justify-center rounded-full bg-[color:var(--color-foreground)] text-xs font-semibold tracking-[0.25em] text-[color:var(--color-background)] shadow">
-                        {`0${index + 1}`.slice(-2)}
-                      </span>
+                      <div className="relative flex flex-col items-center gap-4 sm:items-center">
+                        <span className="flex size-11 items-center justify-center rounded-full bg-[color:var(--color-foreground)] text-xs font-semibold tracking-[0.25em] text-[color:var(--color-background)] shadow">
+                          {`0${index + 1}`.slice(-2)}
+                        </span>
+                        {index < PIPELINE_STEPS.length - 1 ? (
+                          <span className="hidden h-full w-px bg-[color:var(--color-border)]/70 sm:block" aria-hidden="true" />
+                        ) : null}
+                      </div>
                       <div className="flex-1 space-y-4">
                         <LocalizedHeading
                           text={step.title}
@@ -1128,22 +1310,22 @@ export default function HomePage() {
                           language={language}
                           className="text-sm text-[color:var(--color-muted)]"
                         />
-                        <div className="rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-background)]/60 p-4 text-xs text-[color:var(--color-muted-strong)]">
+                        <div className="rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-background)]/70 p-4 text-xs text-[color:var(--color-muted-strong)]">
                           <LocalizedParagraph text={step.artifact} language={language} />
                         </div>
                       </div>
-                    </div>
+                    </article>
                   ))}
                 </div>
-                <aside className="flex flex-col gap-6 rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/80 p-6 shadow-sm">
+                <aside className="flex flex-col gap-6 rounded-3xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 shadow-md">
                   {PIPELINE_CALLOUTS.map((callout) => (
                     <div
                       key={callout.key}
-                      className="rounded-2xl border-l-4 border-[color:var(--color-accent)] bg-[color:var(--color-background)]/70 p-4 shadow-sm"
+                      className="rounded-2xl border border-[color:var(--color-border)] bg-gradient-to-br from-[color:var(--color-background)]/85 to-[color:var(--color-card)]/70 p-5"
                     >
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted-strong)]">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-background)]/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted-strong)]">
                         {language === "zh" ? callout.tag.zh : callout.tag.en}
-                      </p>
+                      </span>
                       <p className="mt-3 text-lg font-semibold text-[color:var(--color-foreground)]">
                         {language === "zh" ? callout.title.zh : callout.title.en}
                       </p>
@@ -1152,10 +1334,10 @@ export default function HomePage() {
                         language={language}
                         className="mt-3 text-sm text-[color:var(--color-muted)]"
                       />
-                      <ul className="mt-4 flex flex-col gap-2 text-sm text-[color:var(--color-muted-strong)]">
+                      <ul className="mt-4 flex flex-col gap-3 text-sm text-[color:var(--color-muted-strong)]">
                         {callout.bullets.map((bullet, index) => (
-                          <li key={index} className="flex gap-2">
-                            <span className="mt-[6px] size-1.5 rounded-full bg-[color:var(--color-foreground)]" />
+                          <li key={index} className="flex gap-3">
+                            <span className="mt-[6px] size-1.5 rounded-full bg-[color:var(--color-accent)]" />
                             <LocalizedParagraph
                               text={bullet}
                               language={language}
@@ -1170,7 +1352,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id="ecosystem" className="mx-auto w-full max-w-[1100px] py-20 lg:mx-0 lg:max-w-none">
+            <section id="ecosystem" className="mx-auto w-full max-w-[1100px] py-16 lg:mx-0 lg:max-w-none">
               <div className="flex flex-col gap-4 text-center">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
                   {language === "zh" ? "生态图谱" : "Ecosystem map"}
@@ -1184,6 +1366,29 @@ export default function HomePage() {
                   className="text-3xl font-semibold"
                 />
               </div>
+              <figure className="mx-auto mt-10 w-full max-w-3xl">
+                <img
+                  src="/images/eco.png"
+                  alt={
+                    language === "zh"
+                      ? "Agent 生态层级示意图"
+                      : "Diagram of agent ecosystem layers"
+                  }
+                  className="w-full rounded-2xl object-contain"
+                />
+                <figcaption className="mt-3 text-center text-xs text-[color:var(--color-muted)]">
+                  <a
+                    href="https://www.ibm.com/think/topics/ai-agents#7281535"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[color:var(--color-muted-strong)] underline-offset-2 hover:underline"
+                  >
+                    {language === "zh"
+                      ? "图示来源：IBM AI Agents 主题页"
+                      : "Source: IBM AI Agents overview"}
+                  </a>
+                </figcaption>
+              </figure>
               <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
                 {ECOSYSTEM_PILLARS.map((pillar, index) => (
                   <article
@@ -1213,7 +1418,187 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id="updates" className="mx-auto w-full max-w-[1100px] py-20 lg:mx-0 lg:max-w-none">
+            <section id="collaboration" className="mx-auto w-full max-w-[1100px] py-16 lg:mx-0 lg:max-w-none">
+              <div className="flex flex-col gap-4 text-center">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
+                  {language === "zh" ? "多 Agent 协作" : "Multi-agent patterns"}
+                </h3>
+                <LocalizedHeading
+                  text={{
+                    en: "Coordinate intent across multiple agents and humans",
+                    zh: "在多 Agent 与人工协作者之间协调意图",
+                  }}
+                  language={language}
+                  className="text-3xl font-semibold"
+                />
+                <LocalizedParagraph
+                  text={{
+                    en: "Shared planners, specialized workers, and human checkpoints let you compose reliable agent teams.",
+                    zh: "通过共享规划者、专职执行者和关键人工检查点，可以组合出可靠的 Agent 团队。",
+                  }}
+                  language={language}
+                  className="mx-auto max-w-2xl text-sm text-[color:var(--color-muted)]"
+                  align="center"
+                />
+              </div>
+              <figure className="mx-auto mt-10 w-full max-w-3xl">
+                <img
+                  src="/images/multi_agent.png"
+                  alt={
+                    language === "zh"
+                      ? "多 Agent 协作模式示意图"
+                      : "Diagram of multi-agent collaboration patterns"
+                  }
+                  className="w-full rounded-2xl object-contain"
+                />
+                <figcaption className="mt-3 text-center text-xs text-[color:var(--color-muted)]">
+                  <a
+                    href="https://www.ibm.com/think/topics/agentic-architecture#1003835715"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[color:var(--color-muted-strong)] underline-offset-2 hover:underline"
+                  >
+                    {language === "zh"
+                      ? "图示来源：IBM Agentic Architecture"
+                      : "Source: IBM Agentic Architecture"}
+                  </a>
+                </figcaption>
+              </figure>
+              <div className="mt-12 grid gap-6 md:grid-cols-3">
+                {[{
+                  key: "planner",
+                  title: { en: "Central planner", zh: "集中式规划" },
+                  description: {
+                    en: "One planner coordinates multiple specialist agents with shared memory and guardrails.",
+                    zh: "由单一规划者协调多个专职 Agent，共享记忆并统一护栏。",
+                  },
+                  tips: [
+                    {
+                      en: "Keeps tooling centralized, easier to audit.",
+                      zh: "工具统一管理，便于审计。",
+                    },
+                    {
+                      en: "Escalate to humans when planner confidence drops.",
+                      zh: "当规划者信心不足时应转交人工。",
+                    },
+                  ],
+                }, {
+                  key: "marketplace",
+                  title: { en: "Agent marketplace", zh: "Agent 市场" },
+                  description: {
+                    en: "A router selects from a pool of agents based on skill tags and historical performance.",
+                    zh: "根据技能标签与历史表现，从 Agent 池中挑选合适的执行者。",
+                  },
+                  tips: [
+                    {
+                      en: "Requires consistent scoring and rate limits per agent.",
+                      zh: "需要统一的评分体系与节流策略。",
+                    },
+                    {
+                      en: "Cache frequent tasks to reduce selection latency.",
+                      zh: "对高频任务做缓存可减少路由延迟。",
+                    },
+                  ],
+                }, {
+                  key: "hybrid",
+                  title: { en: "Hybrid loops", zh: "混合协作" },
+                  description: {
+                    en: "Long-running workflows pair agents with named human roles for approvals or final delivery.",
+                    zh: "在长流程任务中，引入具名人工角色负责审批或最终交付。",
+                  },
+                  tips: [
+                    {
+                      en: "Surface context packs for humans to act quickly.",
+                      zh: "为人工呈现精炼的上下文包以加快决策。",
+                    },
+                    {
+                      en: "Log human decisions back into agent memory.",
+                      zh: "将人工决策写回 Agent 记忆中。",
+                    },
+                  ],
+                }].map((card) => (
+                  <article
+                    key={card.key}
+                    className="flex flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 shadow-sm"
+                  >
+                    <LocalizedHeading
+                      text={card.title}
+                      language={language}
+                      className="text-2xl font-semibold"
+                    />
+                    <LocalizedParagraph
+                      text={card.description}
+                      language={language}
+                      className="text-sm text-[color:var(--color-muted)]"
+                    />
+                    <ul className="flex flex-col gap-2 text-sm text-[color:var(--color-muted-strong)]">
+                      {card.tips.map((tip, index) => (
+                        <li key={index} className="flex gap-2">
+                          <span className="mt-1 size-1.5 rounded-full bg-[color:var(--color-accent)]" />
+                          <LocalizedParagraph text={tip} language={language} />
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            <section id="resources" className="mx-auto w-full max-w-[1100px] py-16 lg:mx-0 lg:max-w-none">
+              <div className="flex flex-col gap-4 text-center">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
+                  {language === "zh" ? "工具与资料" : "Tools & references"}
+                </h3>
+                <LocalizedHeading
+                  text={{
+                    en: "Roll out responsibly with these playbooks",
+                    zh: "结合这些实践手册，负责任地推出 Agent",
+                  }}
+                  language={language}
+                  className="text-3xl font-semibold"
+                />
+              </div>
+              <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-2">
+                {RESOURCE_CATEGORIES.map((category) => (
+                  <div
+                    key={category.name.en}
+                    className="flex h-full flex-col gap-5 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/85 p-6 shadow-sm"
+                  >
+                    <LocalizedHeading
+                      text={category.name}
+                      language={language}
+                      className="text-xl font-semibold"
+                    />
+                    <ul className="flex flex-col gap-4 text-sm text-[color:var(--color-foreground)]">
+                      {category.items.map((item) => (
+                        <li key={item.href} className="rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-background)]/70 p-4 transition hover:-translate-y-[2px] hover:border-[color:var(--color-foreground)] hover:bg-[color:var(--color-card)]">
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-col gap-3 text-left no-underline"
+                          >
+                            <span className="text-base font-semibold text-[color:var(--color-foreground)]">
+                              {language === "zh" ? item.title.zh : item.title.en}
+                            </span>
+                            <span className="text-sm text-[color:var(--color-muted)]">
+                              {language === "zh"
+                                ? item.description.zh
+                                : item.description.en}
+                            </span>
+                            <span className="text-sm font-semibold text-[color:var(--color-foreground)]">
+                              {language === "zh" ? "阅读更多 →" : "Read more →"}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section id="updates" className="mx-auto w-full max-w-[1100px] py-16 lg:mx-0 lg:max-w-none">
               <div className="flex flex-col gap-4 text-center">
                 <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
                   {language === "zh" ? "最新动态" : "Latest updates"}
@@ -1242,11 +1627,6 @@ export default function HomePage() {
                     ? `上次同步：${formatDateLabel(newsFeed.lastUpdated, "zh")}`
                     : `Last updated: ${formatDateLabel(newsFeed.lastUpdated, "en")}`}
                 </span>
-                <span className="text-[color:var(--color-muted-strong)]">
-                  {language === "zh"
-                    ? `数据来源：${NEWS_DATA_PATH}`
-                    : `Data source: ${NEWS_DATA_PATH}`}
-                </span>
               </div>
               <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {sortedNewsItems.map((item) => (
@@ -1255,9 +1635,6 @@ export default function HomePage() {
                     className="flex h-full flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 shadow-sm"
                   >
                     <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
-                      <span className="rounded-full border border-[color:var(--color-border)] px-3 py-1 text-[10px]">
-                        {formatDateLabel(item.publishedAt, language)}
-                      </span>
                       {item.signal ? (
                         <span className="rounded-full bg-[color:var(--color-foreground)] px-3 py-1 text-[10px] text-[color:var(--color-background)]">
                           {item.signal}
@@ -1272,66 +1649,45 @@ export default function HomePage() {
                         </span>
                       ))}
                     </div>
-                    <LocalizedHeading
-                      text={item.title}
-                      language={language}
-                      className="text-xl font-semibold"
-                    />
-                    <LocalizedParagraph
-                      text={item.summary}
-                      language={language}
-                      className="text-sm text-[color:var(--color-muted)]"
-                    />
-                    <a
-                      href={item.source.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-foreground)] underline-offset-4 transition hover:underline"
-                    >
-                      {`${item.source.name} →`}
-                    </a>
+                    <div className="flex flex-col gap-3">
+                      <a
+                        href={item.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex text-left text-[color:var(--color-foreground)] no-underline transition hover:underline"
+                      >
+                        <LocalizedHeading
+                          text={item.title}
+                          language={language}
+                          className="text-xl font-semibold"
+                        />
+                      </a>
+                      <LocalizedParagraph
+                        text={item.summary}
+                        language={language}
+                        className="text-sm text-[color:var(--color-muted)]"
+                      />
+                    </div>
+                    <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                      <a
+                        href={item.source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 min-w-0 text-sm font-semibold text-[color:var(--color-foreground)] underline-offset-4 transition hover:underline"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {`${item.source.name} →`}
+                      </a>
+                      <span className="inline-flex whitespace-nowrap rounded-full bg-[color:var(--color-background)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--color-muted-strong)] shadow-inner">
+                        {formatDateLabel(item.publishedAt, language)}
+                      </span>
+                    </div>
                   </article>
-                ))}
-              </div>
-            </section>
-
-            <section id="resources" className="mx-auto w-full max-w-[1100px] py-20 lg:mx-0 lg:max-w-none">
-              <div className="flex flex-col gap-4 text-center">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]">
-                  {language === "zh" ? "工具与资料" : "Tools & references"}
-                </h3>
-                <LocalizedHeading
-                  text={{
-                    en: "Roll out responsibly with these playbooks",
-                    zh: "结合这些实践手册，负责任地推出 Agent",
-                  }}
-                  language={language}
-                  className="text-3xl font-semibold"
-                />
-              </div>
-              <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {RESOURCE_LINKS.map((resource) => (
-                  <a
-                    key={resource.href}
-                    href={resource.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex h-full flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-                  >
-                    <LocalizedHeading
-                      text={resource.title}
-                      language={language}
-                      className="text-xl font-semibold"
-                    />
-                    <LocalizedParagraph
-                      text={resource.description}
-                      language={language}
-                      className="text-sm text-[color:var(--color-muted)]"
-                    />
-                    <span className="mt-auto text-sm font-semibold text-[color:var(--color-foreground)]">
-                      {language === "zh" ? "阅读更多 →" : "Read more →"}
-                    </span>
-                  </a>
                 ))}
               </div>
             </section>
