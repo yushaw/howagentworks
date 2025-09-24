@@ -1129,11 +1129,25 @@ export default function HomePage() {
 
           <a
             href="#principles"
-            className="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 transform flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--color-muted)]"
+            className="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 transform flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em]"
           >
-            {language === "zh" ? "向下滚动" : "Scroll down"}
-            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 text-lg text-[color:var(--color-foreground)] shadow-inner animate-bounce">
-              ↓
+            <span className="text-[color:var(--color-muted)] opacity-60">
+              {language === "zh" ? "向下滚动" : "Scroll down"}
+            </span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 text-[color:var(--color-foreground)] shadow-inner animate-bounce">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="size-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 5v14" />
+                <path d="m18 13-6 6-6-6" />
+              </svg>
             </span>
           </a>
         </section>
