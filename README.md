@@ -91,7 +91,7 @@ npm run lint
 
 ## 部署到 GitHub Pages
 
-1. **设置环境变量**：部署时令 `NEXT_PUBLIC_BASE_PATH=/howagentworks`（名称需与仓库路径一致）；本地开发可留空。
+1. **设置环境变量（可选）**：如果站点托管在子路径（例如 `https://<username>.github.io/howagentworks/`），需在构建时设置 `NEXT_PUBLIC_BASE_PATH=/howagentworks`。若绑定自定义域名且站点位于根路径，则保持空值即可。
 2. **构建静态资源**：执行 `npm run deploy`，静态文件会输出到 `out/` 目录。
 3. **发布**：将 `out/` 推送到 `gh-pages` 分支，或使用 GitHub Actions 自动化部署。示例工作流：
 
@@ -113,8 +113,6 @@ npm run lint
              cache: 'npm'
          - run: npm ci
          - run: npm run deploy
-           env:
-             NEXT_PUBLIC_BASE_PATH: /howagentworks
          - uses: peaceiris/actions-gh-pages@v3
            with:
              github_token: ${{ secrets.GITHUB_TOKEN }}

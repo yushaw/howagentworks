@@ -17,8 +17,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run deploy
-        env:
-          NEXT_PUBLIC_BASE_PATH: /howagentworks
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
