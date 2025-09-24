@@ -14,10 +14,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /howagentworks
-      - run: npm run export
+      - run: npm run deploy
         env:
           NEXT_PUBLIC_BASE_PATH: /howagentworks
       - name: Deploy

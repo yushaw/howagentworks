@@ -36,7 +36,7 @@ npm run start
 
 ### 导出静态站点
 ```bash
-npm run deploy   # 等价于 npm run build && npm run export
+npm run deploy   # 已配置 output: "export"，该命令会生成 out/ 目录
 ```
 构建结果会位于 `out/` 目录，可直接部署到 GitHub Pages 或任意静态托管服务。
 
@@ -77,6 +77,53 @@ npm run lint
 | 实时动态 | 读取 `public/data/agent-news.json` 展示最新 20 条资讯，支持信号、标签、日期等信息。 |
 | 工具与资料 | 对应 `RESOURCE_CATEGORIES`，按主题归类外部文档和工具。 |
 
+## Agent 如何更新新闻数据
+1. 按 `docs/agent-feed.md` 中的约定生成结构化数据：字段需包含 `id`、`title`、`summary`、`source`、`publishedAt`、`tags` 以及可选的 `signal`，所有文本提供中英文版本。
+2. 将最新 20 条记录写入 `public/data/agent-news.json`，同时更新 `lastUpdated`（UTC ISO 8601）。
+3. 写入前按 `publishedAt` 降序排序、去重，并先写临时文件再替换正式文件以避免途中失败。
+4. 可通过定时任务或 CI（如 GitHub Actions）周期性运行 Agent，把更新后的 JSON 提交或部署。
+
+当运行时读取不到数据时，前端会自动回退到仓库内置的静态快照。
+
+## 图示版权
+- `public/images/core.png`、`lifecycle.png`、`eco.png`、`multi_agent.png` 分别引用自 IBM 的 React Agent / AI Agents / Agentic Architecture 文章，页面中已通过图注链接注明来源。
+- 替换或新增示意图时请保持常见宽高比（3:2 或 4:3），并同步更新图注与来源链接。
+
+## 部署到 GitHub Pages
+
+1. **设置环境变量**：部署时令 `NEXT_PUBLIC_BASE_PATH=/howagentworks`（名称需与仓库路径一致）；本地开发可留空。
+2. **构建静态资源**：执行 `npm run deploy`，静态文件会输出到 `out/` 目录。
+3. **发布**：将 `out/` 推送到 `gh-pages` 分支，或使用 GitHub Actions 自动化部署。示例工作流：
+
+   ```yaml
+   name: Deploy to GitHub Pages
+
+   on:
+     push:
+       branches: [main]
+
+   jobs:
+     deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v4
+         - uses: actions/setup-node@v4
+           with:
+             node-version: '20'
+             cache: 'npm'
+         - run: npm ci
+         - run: npm run deploy
+           env:
+             NEXT_PUBLIC_BASE_PATH: /howagentworks
+         - uses: peaceiris/actions-gh-pages@v3
+           with:
+             github_token: ${{ secrets.GITHUB_TOKEN }}
+             publish_dir: ./out
+   ```
+
+4. **启用 Pages**：在仓库 Settings → Pages 中选择 `gh-pages` 分支，稍候即可通过 `https://<username>.github.io/howagentworks/` 访问。
+
+如果使用自定义域名（例如 `howagent.works`），请在 `public/CNAME` 中写入域名，并在域名 DNS 添加 GitHub Pages 官方 IP 后再保存 Pages 设置即可。
 
 ## 反馈与迭代
 - 欢迎对内容、布局或数据源提出改进建议。
