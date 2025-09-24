@@ -30,7 +30,7 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-YVLSBT3SY3";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-DS4YSLBP4W";
 const isProd = process.env.NODE_ENV === "production";
 
 export default function RootLayout({
