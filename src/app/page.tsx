@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ComponentPropsWithoutRef } from "react";
 
 type Language = "en" | "zh";
 type ThemeMode = "light" | "dark";
@@ -96,9 +96,14 @@ const newsFallback: AgentNewsFeed = {
   ],
 };
 
-const LANGUAGE_LABELS: Record<Language, string> = {
-  en: "English",
-  zh: "中文",
+const LANGUAGE_TOGGLE_LABEL: Record<Language, string> = {
+  en: "中文",
+  zh: "English",
+};
+
+const LANGUAGE_TOGGLE_ARIA: Record<Language, string> = {
+  en: "Switch to Chinese",
+  zh: "切换到英文",
 };
 
 const HERO_COPY = {
@@ -315,10 +320,50 @@ const HEADER_TAGLINE: LocalizedText = {
   zh: "清晰且安全地理解 Agent",
 };
 
-const THEME_BUTTON_TEXT: Record<ThemeMode, LocalizedText> = {
-  light: { en: "Light", zh: "浅色" },
-  dark: { en: "Dark", zh: "深色" },
+const THEME_TOGGLE_LABELS: Record<ThemeMode, LocalizedText> = {
+  light: { en: "Switch to dark mode", zh: "切换到深色模式" },
+  dark: { en: "Switch to light mode", zh: "切换到浅色模式" },
 };
+
+type IconProps = ComponentPropsWithoutRef<"svg">;
+
+const SunIcon = ({ className, ...props }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.6}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" />
+    <path d="M12 20v2" />
+    <path d="M5 5l1.5 1.5" />
+    <path d="M17.5 17.5 19 19" />
+    <path d="M2 12h2" />
+    <path d="M20 12h2" />
+    <path d="M5 19 6.5 17.5" />
+    <path d="M17.5 6.5 19 5" />
+  </svg>
+);
+
+const MoonIcon = ({ className, ...props }: IconProps) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={1.6}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    {...props}
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+  </svg>
+);
 
 
 const CORE_PRINCIPLES: Array<{
@@ -1003,32 +1048,28 @@ export default function HomePage() {
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <div className="flex rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)] p-[2px]">
-              {(["en", "zh"] as Language[]).map((option) => (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => setLanguage(option)}
-                  className={cn(
-                    "px-3 py-1 text-xs font-semibold rounded-full transition",
-                    option === language
-                      ? "bg-[color:var(--color-foreground)] text-[color:var(--color-background)] shadow"
-                      : "text-[color:var(--color-muted)] hover:text-[color:var(--color-foreground)]",
-                  )}
-                >
-                  {LANGUAGE_LABELS[option]}
-                </button>
-              ))}
-            </div>
+            <button
+              type="button"
+              onClick={() => setLanguage(language === "en" ? "zh" : "en")}
+              className="inline-flex items-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)] px-3 py-2 text-xs font-semibold text-[color:var(--color-muted)] transition hover:text-[color:var(--color-foreground)]"
+              aria-label={language === "en" ? LANGUAGE_TOGGLE_ARIA.en : LANGUAGE_TOGGLE_ARIA.zh}
+            >
+              {language === "en"
+                ? LANGUAGE_TOGGLE_LABEL.en
+                : LANGUAGE_TOGGLE_LABEL.zh}
+            </button>
             <button
               type="button"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)] px-3 py-2 text-xs font-semibold text-[color:var(--color-muted)] transition hover:text-[color:var(--color-foreground)]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)] text-[color:var(--color-muted)] transition hover:text-[color:var(--color-foreground)]"
+              aria-label={language === "en" ? THEME_TOGGLE_LABELS[theme].en : THEME_TOGGLE_LABELS[theme].zh}
+              title={language === "en" ? THEME_TOGGLE_LABELS[theme].en : THEME_TOGGLE_LABELS[theme].zh}
             >
-              <span className="size-2 rounded-full bg-[color:var(--color-accent)] shadow-inner" />
-              {language === "zh"
-                ? THEME_BUTTON_TEXT[theme].zh
-                : THEME_BUTTON_TEXT[theme].en}
+              {theme === "light" ? (
+                <SunIcon className="size-4" aria-hidden />
+              ) : (
+                <MoonIcon className="size-4" aria-hidden />
+              )}
             </button>
           </div>
         </div>
