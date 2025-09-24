@@ -77,55 +77,7 @@ npm run lint
 | 实时动态 | 读取 `public/data/agent-news.json` 展示最新 20 条资讯，支持信号、标签、日期等信息。 |
 | 工具与资料 | 对应 `RESOURCE_CATEGORIES`，按主题归类外部文档和工具。 |
 
-## Agent 如何更新新闻数据
-1. 按 `docs/agent-feed.md` 中的约定生成结构化数据：确保字段包含 `id`、`title`、`summary`、`source`、`publishedAt`、`tags`，以及可选的 `signal`，且所有文案需提供中英文版本。
-2. 将最新 20 条记录写入 `public/data/agent-news.json`，同时更新时间戳 `lastUpdated`（UTC ISO 8601）。
-3. 建议写入前排序（`publishedAt` 降序）、去重，并先写临时文件再覆盖以避免部分写入。
-4. 可通过计划任务或 CI（例如 GitHub Actions）周期性运行爬虫 / Agent，将更新后的文件提交或部署。
-
-一旦 JSON 就绪，前端无需额外配置即可自动展示最新内容；构建或运行时读取不到数据时，会回退到仓库中提供的默认快照。
-
-## 图示版权
-- `public/images/core.png`、`lifecycle.png`、`multi_agent.png`、`eco.png` 分别引用自 IBM 的 React Agent / AI Agents / Agentic Architecture 文章。嵌入页面时已通过图注链接注明来源。
-- 如需替换或新增示意图，请保持 3:2 或 4:3 的常规比例，并在相应章节更新图注及来源链接。
 
 ## 反馈与迭代
 - 欢迎对内容、布局或数据源提出改进建议。
 - 如果需要扩展更多区块或引入多语言，请保持组件化设计，复用 `LocalizedHeading`、`LocalizedParagraph` 等辅助方法；新增图片请放入 `public/images/` 并在 README 中更新引用说明。
-
-## 部署到 GitHub Pages
-
-1. **设置环境变量**：部署时令 `NEXT_PUBLIC_BASE_PATH=/howagentworks`（名称需与仓库路径一致）。开发环境可不设置或保留空值。
-2. **构建并导出**：执行 `npm run deploy`，静态文件会输出到 `out/` 目录。
-3. **发布**：将 `out/` 内容推送到 `gh-pages` 分支，或使用 GitHub Actions 自动化部署。示例工作流可参考：
-
-   ```yaml
-   name: Deploy to GitHub Pages
-
-   on:
-     push:
-       branches: [main]
-
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v4
-         - uses: actions/setup-node@v4
-           with:
-             node-version: '20'
-             cache: 'npm'
-         - run: npm ci
-         - run: npm run build
-           env:
-             NEXT_PUBLIC_BASE_PATH: /howagentworks
-         - run: npm run export
-           env:
-             NEXT_PUBLIC_BASE_PATH: /howagentworks
-         - uses: peaceiris/actions-gh-pages@v3
-           with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./out
-   ```
-
-4. **启用 Pages**：在 GitHub → Settings → Pages 中选择 `gh-pages` 分支即可访问 `https://<username>.github.io/howagentworks/`。
