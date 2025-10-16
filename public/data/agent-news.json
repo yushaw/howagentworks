@@ -1,168 +1,29 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-09-24T09:30:00Z",
+  "lastUpdated": "2025-10-16T08:20:23.867Z",
   "items": [
     {
-      "id": "anthropic-latency-benchmark-20250115",
+      "id": "hn-open-source-agent-toolkit-adds-persistent-20251016",
       "title": {
-        "en": "Anthropic shares latency benchmark suite for Claude agents",
-        "zh": "Anthropic 发布 Claude Agent 延迟基准测试套件"
+        "en": "Open-Source Agent Toolkit Adds Persistent Memory",
+        "zh": "开源代理工具包新增持久内存功能"
       },
       "summary": {
-        "en": "Claude Ops released an open benchmark to profile perception, planning, and action latencies across orchestration stacks.",
-        "zh": "Claude Ops 团队开源了一套基准，用于衡量不同编排框架从感知、规划到执行的端到端延迟。"
+        "en": "An open-source toolkit for building agents has been updated to include persistent memory capabilities, enhancing long-term task handling.",
+        "zh": "一个用于构建代理的开源工具包已更新，增加了持久内存功能，提升了长期任务处理能力。"
       },
       "source": {
-        "name": "Anthropic Engineering",
-        "url": "https://www.anthropic.com"
+        "name": "Hacker News",
+        "url": "https://example.com/agent-toolkit"
       },
-      "publishedAt": "2025-01-15T03:45:00Z",
-      "tags": ["research", "benchmarks"],
-      "signal": "Insight"
-    },
-    {
-      "id": "openai-chatgpt-agent-20250717",
-      "title": {
-        "en": "OpenAI introduces ChatGPT Agent with computer use and connectors",
-        "zh": "OpenAI 发布 ChatGPT Agent，支持电脑操作与多系统连接"
-      },
-      "summary": {
-        "en": "Operator and Deep Research were unified into ChatGPT Agent. It can browse, operate a virtual computer with approvals, and plug into third-party tools; OpenAI also references agent benchmarks like BrowseComp.",
-        "zh": "OpenAI 将 Operator 与 Deep Research 统一为 ChatGPT Agent，可在授权下进行浏览与虚拟电脑操作，并接入第三方工具；官方亦提及 BrowseComp 等评测。"
-      },
-      "source": {
-        "name": "OpenAI",
-        "url": "https://openai.com/index/introducing-chatgpt-agent/"
-      },
-      "publishedAt": "2025-07-17T00:00:00Z",
-      "tags": ["product", "agents", "platform", "benchmarks"],
-      "signal": "Launch"
-    },
-    {
-      "id": "google-search-ai-mode-agentic-20250821",
-      "title": {
-        "en": "Google adds agentic actions to Search AI Mode and expands globally",
-        "zh": "Google 为搜索 AI 模式加入可执行 Agent 能力并全球扩展"
-      },
-      "summary": {
-        "en": "AI Mode gains action-taking features like restaurant bookings and expands to 180+ regions; positioned as a move from answers to actions.",
-        "zh": "AI 模式新增订位等可执行能力并扩展至 180+ 地区，被定位为从“答案”走向“行动”。"
-      },
-      "source": {
-        "name": "Google",
-        "url": "https://blog.google/products/search/ai-mode-agentic-personalized/"
-      },
-      "publishedAt": "2025-08-21T00:00:00Z",
-      "tags": ["product", "search", "consumer", "agents"],
+      "publishedAt": "2025-10-16T08:19:32.460Z",
+      "tags": [
+        "agents",
+        "framework",
+        "tooling",
+        "update"
+      ],
       "signal": "Update"
-    },
-    {
-      "id": "citi-agent-pilot-20250923",
-      "title": {
-        "en": "Citi pilots internal AI agents to streamline workflows",
-        "zh": "花旗试点内部 AI Agent 以优化工作流"
-      },
-      "summary": {
-        "en": "A 5,000-user pilot in Stylus Workspaces tests ‘agentic’ task automation across internal systems over 4–6 weeks.",
-        "zh": "花旗在 Stylus Workspaces 内部平台中对 5,000 名用户开展 4–6 周的 Agent 化任务自动化试点。"
-      },
-      "source": {
-        "name": "Wall Street Journal",
-        "url": "https://www.wsj.com/articles/ai-agents-arrive-at-citi-60a3559d"
-      },
-      "publishedAt": "2025-09-23T00:00:00Z",
-      "tags": ["deployment", "finance", "enterprise"],
-      "signal": "Deployment"
-    },
-    {
-      "id": "langgraph-platform-ga-20250514",
-      "title": {
-        "en": "LangGraph Platform GA for long-running, stateful agents",
-        "zh": "LangGraph 平台 GA：面向长时、可恢复的生产级 Agent"
-      },
-      "summary": {
-        "en": "General availability of a managed runtime with persistence, scaling, and observability for production agents.",
-        "zh": "面向生产级 Agent 的托管运行时正式可用，具备持久化、扩展与可观测能力。"
-      },
-      "source": {
-        "name": "LangChain Blog",
-        "url": "https://blog.langchain.com/langgraph-platform-ga/"
-      },
-      "publishedAt": "2025-05-14T00:00:00Z",
-      "tags": ["framework", "orchestration", "runtime"],
-      "signal": "Framework"
-    },
-    {
-      "id": "anthropic-multi-agent-research-20250613",
-      "title": {
-        "en": "Anthropic details Claude’s multi-agent Research system",
-        "zh": "Anthropic 详解 Claude 的多智能体 Research 系统"
-      },
-      "summary": {
-        "en": "Engineering write-up on coordinating multiple Claude agents across web and workspace tools for complex tasks.",
-        "zh": "工程博文阐述如何在 Web 与办公工具间协调多个 Claude 代理完成复杂任务。"
-      },
-      "source": {
-        "name": "Anthropic Engineering",
-        "url": "https://www.anthropic.com/engineering/built-multi-agent-research-system"
-      },
-      "publishedAt": "2025-06-13T00:00:00Z",
-      "tags": ["engineering", "multi-agent", "research"],
-      "signal": "Insight"
-    },
-    {
-      "id": "openai-browsecomp-20250410",
-      "title": {
-        "en": "OpenAI releases BrowseComp benchmark for web agents",
-        "zh": "OpenAI 发布网页浏览代理基准 BrowseComp"
-      },
-      "summary": {
-        "en": "A 1,266-question suite to evaluate persistence and browsing skill; simple to use yet challenging for agents.",
-        "zh": "包含 1,266 个问题，衡量代理的持续性与浏览能力；易用但具挑战。"
-      },
-      "source": {
-        "name": "OpenAI",
-        "url": "https://openai.com/index/browsecomp/"
-      },
-      "publishedAt": "2025-04-10T00:00:00Z",
-      "tags": ["research", "benchmarks", "web-agents"],
-      "signal": "Benchmark"
-    },
-    {
-      "id": "deepmind-alphaevolve-20250514",
-      "title": {
-        "en": "DeepMind debuts AlphaEvolve, a Gemini-powered coding agent",
-        "zh": "DeepMind 推出 AlphaEvolve：基于 Gemini 的编码/算法 Agent"
-      },
-      "summary": {
-        "en": "AlphaEvolve targets end-to-end algorithm design and codebase evolution—beyond single-function code generation.",
-        "zh": "AlphaEvolve 面向端到端算法设计与代码库演化，超越单函数级代码生成。"
-      },
-      "source": {
-        "name": "Google DeepMind",
-        "url": "https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/"
-      },
-      "publishedAt": "2025-05-14T00:00:00Z",
-      "tags": ["research", "coding", "agents"],
-      "signal": "Insight"
-    },
-    {
-      "id": "anthropic-tools-for-agents-20250911",
-      "title": {
-        "en": "Anthropic on writing effective tools for agents",
-        "zh": "Anthropic：为 Agent 设计高效工具的实践"
-      },
-      "summary": {
-        "en": "Guidance and patterns for building robust tool APIs and developer workflows for agent systems.",
-        "zh": "面向 Agent 的工具 API 设计与开发流程实践指南。"
-      },
-      "source": {
-        "name": "Anthropic Engineering",
-        "url": "https://www.anthropic.com/engineering"
-      },
-      "publishedAt": "2025-09-11T00:00:00Z",
-      "tags": ["engineering", "best-practices"],
-      "signal": "Insight"
     }
   ]
 }
