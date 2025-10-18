@@ -1,110 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type ComponentPropsWithoutRef } from "react";
-
-type Language = "en" | "zh";
-type ThemeMode = "light" | "dark";
-
-interface LocalizedText {
-  en: string;
-  zh: string;
-}
-
-interface AgentNewsItem {
-  id: string;
-  title: LocalizedText;
-  summary: LocalizedText;
-  source: {
-    name: string;
-    url: string;
-  };
-  publishedAt: string;
-  tags: string[];
-  signal?: string;
-}
-
-interface AgentNewsFeed {
-  schemaVersion: string;
-  lastUpdated: string;
-  items: AgentNewsItem[];
-}
-
-const THEME_STORAGE_KEY = "howagentworks:theme";
-const LANGUAGE_STORAGE_KEY = "howagentworks:language";
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const resolveAssetPath = (path: string) => `${basePath}${path}`.replace(/\/{2,}/g, "/");
-const NEWS_DATA_PATH = resolveAssetPath("/data/agent-news.json");
-
-const newsFallback: AgentNewsFeed = {
-  schemaVersion: "2025-01-17",
-  lastUpdated: "2025-01-17T09:30:00Z",
-  items: [
-    {
-      id: "openai-o4-mini-20250116",
-      title: {
-        en: "OpenAI unveils O4-Mini with faster deliberation",
-        zh: "OpenAI 发布 O4-Mini，强调更快的规划推理",
-      },
-      summary: {
-        en: "The new O4-Mini model focuses on short-horizon planning with tool calling baked in, offering better latency for production agents.",
-        zh: "新的 O4-Mini 模型强化短周期规划并内置工具调用，显著降低面向生产级 Agent 的响应延迟。",
-      },
-      source: {
-        name: "OpenAI Blog",
-        url: "https://openai.com/blog",
-      },
-      publishedAt: "2025-01-16T15:00:00Z",
-      tags: ["product", "models"],
-      signal: "Launch",
-    },
-    {
-      id: "anthropic-latency-benchmark-20250115",
-      title: {
-        en: "Anthropic shares latency benchmark suite for Claude agents",
-        zh: "Anthropic 发布 Claude Agent 延迟基准测试套件",
-      },
-      summary: {
-        en: "Claude Ops released an open benchmark to profile perception, planning, and action latencies across orchestration stacks.",
-        zh: "Claude Ops 团队开源了一套基准，用于衡量不同编排框架从感知、规划到执行的端到端延迟。",
-      },
-      source: {
-        name: "Anthropic Engineering",
-        url: "https://www.anthropic.com",
-      },
-      publishedAt: "2025-01-15T03:45:00Z",
-      tags: ["research", "benchmarks"],
-      signal: "Insight",
-    },
-    {
-      id: "regulation-eu-agent-logging-20250113",
-      title: {
-        en: "EU proposes audit trail rules for autonomous agents",
-        zh: "欧盟提议针对自主 Agent 的审计追踪新规",
-      },
-      summary: {
-        en: "A draft regulation would require transparent logging and reversible actions for high-autonomy systems deployed in Europe.",
-        zh: "最新草案要求在欧洲部署的高自治 Agent 必须具备透明日志与可逆操作能力。",
-      },
-      source: {
-        name: "EU Digital Policy",
-        url: "https://digital-strategy.ec.europa.eu",
-      },
-      publishedAt: "2025-01-13T11:20:00Z",
-      tags: ["policy", "compliance"],
-      signal: "Policy",
-    },
-  ],
-};
-
-const LANGUAGE_TOGGLE_LABEL: Record<Language, string> = {
-  en: "中文",
-  zh: "English",
-};
-
-const LANGUAGE_TOGGLE_ARIA: Record<Language, string> = {
-  en: "Switch to Chinese",
-  zh: "切换到英文",
-};
+import Link from "next/link";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { MoonIcon, SunIcon } from "@/components/icons";
+import { LocalizedHeading, LocalizedParagraph } from "@/components/LocalizedText";
+import { NewsCard } from "@/components/NewsCard";
+import { SiteFooter } from "@/components/SiteFooter";
+import { useUserPreferences } from "@/hooks/useUserPreferences";
+import { formatDateLabel } from "@/lib/dates";
+import type { Language, LocalizedText } from "@/lib/i18n";
+import { loadAgentNewsFeed, newsFallback, type AgentNewsFeed } from "@/lib/news";
+import { resolveAssetPath } from "@/lib/paths";
+import { HEADER_TAGLINE } from "@/lib/site-copy";
+import { LANGUAGE_TOGGLE_ARIA, LANGUAGE_TOGGLE_LABEL, THEME_TOGGLE_LABELS } from "@/lib/ui-copy";
+import { cn } from "@/lib/utils";
 
 const HERO_COPY = {
   kicker: {
@@ -314,57 +223,6 @@ const PIPELINE_CALLOUTS: Array<{
     ],
   },
 ];
-
-const HEADER_TAGLINE: LocalizedText = {
-  en: "Agents, explained clearly (and safely)",
-  zh: "清晰且安全地理解 Agent",
-};
-
-const THEME_TOGGLE_LABELS: Record<ThemeMode, LocalizedText> = {
-  light: { en: "Switch to dark mode", zh: "切换到深色模式" },
-  dark: { en: "Switch to light mode", zh: "切换到浅色模式" },
-};
-
-type IconProps = ComponentPropsWithoutRef<"svg">;
-
-const SunIcon = ({ className, ...props }: IconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-    {...props}
-  >
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2" />
-    <path d="M12 20v2" />
-    <path d="M5 5l1.5 1.5" />
-    <path d="M17.5 17.5 19 19" />
-    <path d="M2 12h2" />
-    <path d="M20 12h2" />
-    <path d="M5 19 6.5 17.5" />
-    <path d="M17.5 6.5 19 5" />
-  </svg>
-);
-
-const MoonIcon = ({ className, ...props }: IconProps) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={1.6}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-    {...props}
-  >
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
-  </svg>
-);
-
 
 const CORE_PRINCIPLES: Array<{
   key: string;
@@ -700,71 +558,6 @@ const RESOURCE_CATEGORIES: Array<{
     ],
   },
 ];
-const cn = (...classes: Array<string | false | null | undefined>) =>
-  classes.filter(Boolean).join(" ");
-
-function LocalizedHeading({
-  text,
-  language,
-  className,
-}: {
-  text: LocalizedText;
-  language: Language;
-  className?: string;
-}) {
-  return (
-    <h2 className={className}>{language === "en" ? text.en : text.zh}</h2>
-  );
-}
-
-function LocalizedParagraph({
-  text,
-  language,
-  className,
-  align = "left",
-}: {
-  text: LocalizedText;
-  language: Language;
-  className?: string;
-  align?: "left" | "center";
-}) {
-  return (
-    <p
-      className={cn(
-        "leading-relaxed",
-        align === "center" ? "text-center" : "text-left",
-        className,
-      )}
-    >
-      {language === "en" ? text.en : text.zh}
-    </p>
-  );
-}
-
-function formatDateLabel(iso: string, language: Language) {
-  const date = new Date(iso);
-  const currentYear = new Date().getFullYear();
-  const yearMatches = date.getFullYear() === currentYear;
-
-  if (language === "en") {
-    const formatter = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-      day: "numeric",
-      ...(yearMatches ? {} : { year: "numeric" }),
-    });
-    return formatter.format(date);
-  }
-
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-
-  if (yearMatches) {
-    return `${month}月${day}日`;
-  }
-
-  return `${date.getFullYear()}年${month}月${day}日`;
-}
-
 function LifecycleDiagram({ language }: { language: Language }) {
   return (
     <figure className="mx-auto mt-10 w-full max-w-3xl">
@@ -795,99 +588,25 @@ function LifecycleDiagram({ language }: { language: Language }) {
 
 
 export default function HomePage() {
-  const [theme, setTheme] = useState<ThemeMode>("light");
-  const [language, setLanguage] = useState<Language>("en");
+  const { theme, setTheme, language, setLanguage } = useUserPreferences();
   const [newsFeed, setNewsFeed] = useState<AgentNewsFeed>(newsFallback);
   const [isSectionRailVisible, setSectionRailVisible] = useState(false);
   const sectionRailRef = useRef<HTMLDivElement | null>(null);
   const [hasScrolledPastHero, setHasScrolledPastHero] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+    let isMounted = true;
 
-    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY) as
-      | ThemeMode
-      | null;
-    const storedLanguage = window.localStorage.getItem(
-      LANGUAGE_STORAGE_KEY,
-    ) as Language | null;
-
-    if (storedTheme === "dark" || storedTheme === "light") {
-      setTheme(storedTheme);
-    } else {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      setTheme(prefersDark ? "dark" : "light");
-    }
-
-    if (storedLanguage === "en" || storedLanguage === "zh") {
-      setLanguage(storedLanguage);
-      return;
-    }
-
-    const browserLanguages =
-      typeof navigator !== "undefined" && navigator.languages?.length
-        ? navigator.languages
-        : typeof navigator !== "undefined"
-          ? [navigator.language]
-          : [];
-
-    const prefersChinese = browserLanguages.some((lang) =>
-      lang?.toLowerCase().startsWith("zh"),
-    );
-
-    setLanguage(prefersChinese ? "zh" : "en");
-  }, []);
-
-  useEffect(() => {
-    if (typeof document === "undefined") {
-      return;
-    }
-
-    document.documentElement.setAttribute("data-theme", theme);
-    document.documentElement.style.colorScheme = theme;
-    window.localStorage.setItem(THEME_STORAGE_KEY, theme);
-  }, [theme]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
-  }, [language]);
-
-  useEffect(() => {
-    let cancelled = false;
-
-        fetch(NEWS_DATA_PATH)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Failed to load news feed: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((payload: AgentNewsFeed) => {
-        if (cancelled) {
-          return;
-        }
-        if (!payload || !Array.isArray(payload.items)) {
-          throw new Error("Malformed news payload");
-        }
-        setNewsFeed(payload);
-      })
-      .catch(() => {
-        // Fall back to bundled snapshot silently.
-        if (!cancelled) {
-          setNewsFeed(newsFallback);
-        }
-      });
+    loadAgentNewsFeed().then((payload) => {
+      if (!isMounted) {
+        return;
+      }
+      setNewsFeed(payload);
+    });
 
     return () => {
-      cancelled = true;
+      isMounted = false;
     };
   }, []);
 
@@ -899,6 +618,10 @@ export default function HomePage() {
           new Date(a.publishedAt).getTime(),
       ),
     [newsFeed.items],
+  );
+  const previewNewsItems = useMemo(
+    () => sortedNewsItems.slice(0, 6),
+    [sortedNewsItems],
   );
 
   useEffect(() => {
@@ -951,7 +674,9 @@ export default function HomePage() {
     }
 
     const updateScrollFlag = () => {
-      setHasScrolledPastHero(window.scrollY > 48);
+      const offset = window.scrollY;
+      setHasScrolledPastHero(offset > 48);
+      setShowScrollTop(offset > 320);
     };
 
     updateScrollFlag();
@@ -1685,66 +1410,22 @@ export default function HomePage() {
                     : `Last updated: ${formatDateLabel(newsFeed.lastUpdated, "en")}`}
                 </span>
               </div>
+              <div className="mt-6 flex justify-center">
+                <Link
+                  href="/news"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 px-5 py-2 text-sm font-semibold text-[color:var(--color-foreground)] transition hover:border-[color:var(--color-foreground)]"
+                >
+                  <span>
+                    {language === "zh" ? "浏览全部新闻" : "Browse all updates"}
+                  </span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
               <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {sortedNewsItems.map((item) => (
-                  <article
-                    key={item.id}
-                    className="flex h-full flex-col gap-4 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-6 shadow-sm"
-                  >
-                    <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--color-muted)]">
-                      {item.signal ? (
-                        <span className="rounded-full bg-[color:var(--color-foreground)] px-3 py-1 text-[10px] text-[color:var(--color-background)]">
-                          {item.signal}
-                        </span>
-                      ) : null}
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-[color:var(--color-border)] px-2 py-1 text-[10px] tracking-[0.2em]"
-                        >
-                          {tag.toUpperCase()}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <a
-                        href={item.source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex text-left text-[color:var(--color-foreground)] no-underline transition hover:underline"
-                      >
-                        <LocalizedHeading
-                          text={item.title}
-                          language={language}
-                          className="text-xl font-semibold"
-                        />
-                      </a>
-                      <LocalizedParagraph
-                        text={item.summary}
-                        language={language}
-                        className="text-sm text-[color:var(--color-muted)]"
-                      />
-                    </div>
-                    <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
-                      <a
-                        href={item.source.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 min-w-0 text-sm font-semibold text-[color:var(--color-foreground)] underline-offset-4 transition hover:underline"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {`${item.source.name} →`}
-                      </a>
-                      <span className="inline-flex whitespace-nowrap rounded-full bg-[color:var(--color-background)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[color:var(--color-muted-strong)] shadow-inner">
-                        {formatDateLabel(item.publishedAt, language)}
-                      </span>
-                    </div>
-                  </article>
+                {previewNewsItems.map((item) => (
+                  <NewsCard key={item.id} item={item} language={language} />
                 ))}
               </div>
             </section>
@@ -1752,39 +1433,34 @@ export default function HomePage() {
         </div>
       </main>
 
-      <footer className="border-t border-[color:var(--color-border)] bg-[color:var(--color-background)]/90">
-        <div className="mx-auto flex max-w-[1100px] flex-col gap-4 px-6 py-12 text-sm text-[color:var(--color-muted)] md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3 text-[color:var(--color-muted-strong)]">
-            <a
-              href="https://github.com/yushaw/howagentworks"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="inline-flex size-9 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)]/80 text-[color:var(--color-foreground)] transition hover:bg-[color:var(--color-card)]"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                className="size-5"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M12 2a10 10 0 0 0-3.16 19.47c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34a2.65 2.65 0 0 0-1.1-1.45c-.9-.62.07-.61.07-.61a2.1 2.1 0 0 1 1.54 1.03 2.15 2.15 0 0 0 2.94.84 2.16 2.16 0 0 1 .64-1.35c-2.22-.25-4.57-1.11-4.57-4.94a3.88 3.88 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.66s.84-.27 2.75 1.03a9.44 9.44 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03a3.6 3.6 0 0 1 .1 2.66 3.88 3.88 0 0 1 1 2.7c0 3.84-2.36 4.68-4.6 4.93a2.4 2.4 0 0 1 .69 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2Z" />
-              </svg>
-            </a>
-            <span>
-              {language === "zh"
-                ? "由 HowAgent.works 团队维护"
-                : "Maintained by the HowAgent.works team"}
-            </span>
-          </div>
-          <span>
-            {language === "zh"
-              ? "内容持续迭代，欢迎提交 Issue 或 PR"
-              : "Content evolves continuously—feedback and PRs welcome"}
-          </span>
-        </div>
-      </footer>
+      <SiteFooter language={language} />
+      {showScrollTop ? (
+        <button
+          type="button"
+          onClick={() => {
+            const prefersReducedMotion = window.matchMedia(
+              "(prefers-reduced-motion: reduce)",
+            ).matches;
+            window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+          }}
+          className="fixed bottom-8 right-6 hidden items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-card)]/90 p-3 text-[color:var(--color-muted-strong)] shadow-sm transition hover:border-[color:var(--color-foreground)] hover:text-[color:var(--color-foreground)] md:flex"
+          aria-label={language === "zh" ? "回到顶部" : "Back to top"}
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            className="size-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 19V5" />
+            <path d="m6 11 6-6 6 6" />
+          </svg>
+        </button>
+      ) : null}
     </div>
   );
 }

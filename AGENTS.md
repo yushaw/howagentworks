@@ -1,31 +1,33 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `src/app/` — Next.js App Router entry points. `page.tsx` renders the one-page experience; `layout.tsx` hosts fonts/metadata; `not-found.tsx` provides the 404 view; `globals.css` defines theme variables.
-- `public/data/` — JSON snapshots consumed at runtime (e.g., `agent-news.json`). Agents should update these files atomically.
-- `docs/` — Data contracts and operational docs (`agent-feed.md`). Extend this folder with additional schemas when adding new automated feeds.
+- `src/app/` contains the entire page experience. `page.tsx` renders all sections, `layout.tsx` wires fonts/metadata, `globals.css` defines shared theming, and `not-found.tsx` provides the 404 fallback.
+- `public/data/agent-news.json` is the live news snapshot read by the updates section; treat writes as atomic replacements.
+- `public/images/` stores IBM-provided diagrams referenced throughout the page.
+- `docs/agent-feed.md` is the schema contract for automated feed writers. Add any new data specs here before changing runtime payloads.
 
 ## Build, Test, and Development Commands
-- `npm run dev` — Launches the local dev server on `http://localhost:3000` with hot reload.
-- `npm run lint` — Runs ESLint with the Next.js config; required before commits.
-- `npm run build` — Produces a production bundle using Turbopack and validates types.
-- `npm run start` — Serves the optimized build locally (use after `build`).
+- `npm run dev` starts the dev server at `http://localhost:3000` with hot reload.
+- `npm run lint` runs ESLint with the Next.js config; fix all issues before committing.
+- `npm run build` compiles the production bundle and validates types via Turbopack.
+- `npm run start` serves the optimized build after a successful `build`.
+- `npm run deploy` exports a static site into `out/` for GitHub Pages or equivalent hosting.
 
 ## Coding Style & Naming Conventions
-- TypeScript + React 19 with functional components. Follow Next.js App Router defaults.
-- Prefer Tailwind utility classes; use `cn()` helper for conditional styling.
-- Keep JSON bilingual fields as `{ en: string, zh: string }`; camelCase for object keys.
-- Run `npm run lint` to enforce formatting; no separate prettier config is required.
+- TypeScript + React 19 functional components only; keep modules colocated with their assets in `src/app/`.
+- Prefer Tailwind utility classes; use the `cn()` helper when applying conditional styles.
+- JSON documents must stay bilingual using `{ en: string, zh: string }` fields and camelCase keys.
+- Formatting is enforced by ESLint; there is no separate prettier step.
 
 ## Testing Guidelines
-- No automated test harness yet. For visual/UI changes, validate via `npm run dev` across light/dark themes and both languages.
-- When adding tooling, colocate tests under `src/` with `.test.ts(x)` suffix and document the framework in this file.
+- There is no automated test harness today. Manually verify UI changes in both languages and light/dark themes via `npm run dev`.
+- If you introduce automated tests, colocate them under `src/` with a `.test.ts(x)` suffix and document the framework in `docs/`.
 
 ## Commit & Pull Request Guidelines
-- Use concise, imperative commit subjects (e.g., `Add bilingual hero copy`).
-- PRs should include: summary of changes, impacted sections (`src/app/...`, `public/data/...`), screenshots or screen recordings for UI work, and references to data schema updates.
-- Confirm `npm run lint` and `npm run build` succeed before requesting review.
+- Use concise, imperative commit messages such as `Update lifecycle copy`.
+- Pull requests should summarize changes, mention impacted areas (e.g., `src/app/page.tsx`, `public/data/agent-news.json`), and include screenshots for visual updates.
+- Before requesting review, confirm `npm run lint` and `npm run build` both succeed and note that status in the PR description.
 
-## Agent Update Recommendations
-- Agents rewriting JSON must preserve `schemaVersion`, trim to latest 20 items (unless schema states otherwise), and update `lastUpdated` in UTC ISO 8601.
-- Validate bilingual fields and sort order before committing changes; prefer writing to a temp file then renaming to avoid partial writes.
+## Agent Update Checklist
+- When refreshing `public/data/agent-news.json`, preserve `schemaVersion`, update `lastUpdated` with a UTC ISO timestamp, and keep only the newest 20 items sorted by `publishedAt` descending.
+- Generate bilingual content upstream, validate JSON before writing, and prefer a temp-file swap to avoid partial updates.
