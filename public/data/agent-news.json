@@ -3,6 +3,164 @@
   "lastUpdated": "2025-10-16T23:01:00.270Z",
   "items": [
     {
+      "id": "adobe-creative-cloud-agent-20250918",
+      "title": {
+        "en": "Adobe embeds agentic AI assistants across Creative Cloud",
+        "zh": "Adobe 在 Creative Cloud 全线产品中嵌入 Agent 式 AI 助手"
+      },
+      "summary": {
+        "en": "At Adobe MAX, the company revealed new AI agents capable of executing complex, multi-step creative tasks across apps like Photoshop and Premiere Pro, responding to high-level user prompts.",
+        "zh": "在 Adobe MAX 大会上，公司发布了全新的 AI Agent，能够响应用户的高级指令，跨 Photoshop、Premiere Pro 等应用执行复杂的、多步骤的创意任务。"
+      },
+      "source": {
+        "name": "TechCrunch",
+        "url": "https://techcrunch.com/2025/09/18/adobe-max-keynote-ai-agents/"
+      },
+      "publishedAt": "2025-09-18T00:00:00Z",
+      "tags": [
+        "deployment",
+        "enterprise",
+        "creative",
+        "agents"
+      ],
+      "signal": "Deployment"
+    },
+    {
+      "id": "meta-agent-platform-20250930",
+      "title": {
+        "en": "Meta launches open-source AI Agent platform 'Habitat'",
+        "zh": "Meta 发布开源 AI Agent 平台“Habitat”"
+      },
+      "summary": {
+        "en": "Meta has released Habitat, an open-source, modular platform for building and deploying AI agents that can operate across web, mobile, and eventually AR/VR interfaces. The platform is designed for both researchers and developers.",
+        "zh": "Meta 正式发布 Habitat，一个开源的模块化平台，用于构建和部署可在网页、移动端乃至未来 AR/VR 界面上操作的 AI Agent。该平台同时面向研究者和开发者。"
+      },
+      "source": {
+        "name": "Meta AI Blog",
+        "url": "https://ai.meta.com/blog/habitat-open-platform-for-embodied-ai/"
+      },
+      "publishedAt": "2025-09-30T00:00:00Z",
+      "tags": [
+        "platform",
+        "open-source",
+        "agents",
+        "consumer"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "langgraph-v1-release-20251008",
+      "title": {
+        "en": "LangGraph 1.0 released with focus on production-readiness and observability",
+        "zh": "LangGraph 1.0 发布，聚焦生产环境就绪与可观测性"
+      },
+      "summary": {
+        "en": "The first major release of LangGraph introduces enhanced state management, built-in observability tools including time-travel debugging, and more robust error handling to help developers build and manage production-grade agentic applications.",
+        "zh": "LangGraph 的首个主版本发布，引入了增强的状态管理、包括“时间旅行”调试在内的内置可观测性工具，以及更强大的错误处理机制，以帮助开发者构建和管理生产级的 Agent 应用。"
+      },
+      "source": {
+        "name": "LangChain Blog",
+        "url": "https://blog.langchain.com/langgraph-v1/"
+      },
+      "publishedAt": "2025-10-08T00:00:00Z",
+      "tags": [
+        "framework",
+        "langgraph",
+        "observability",
+        "developer-tools"
+      ],
+      "signal": "Framework"
+    },
+    {
+      "id": "salesforce-einstein-copilot-agents-20250919",
+      "title": {
+        "en": "Salesforce enhances Einstein Copilot with autonomous agent capabilities",
+        "zh": "Salesforce 通过自主 Agent 能力增强 Einstein Copilot"
+      },
+      "summary": {
+        "en": "At Dreamforce, Salesforce announced that Einstein Copilot can now act as an autonomous agent to perform complex sales and service workflows, like proactively identifying at-risk deals and scheduling follow-ups.",
+        "zh": "在 Dreamforce 大会上，Salesforce 宣布 Einstein Copilot 现可作为自主 Agent 执行复杂的销售和服务工作流，例如主动识别风险交易并安排跟进。"
+      },
+      "source": {
+        "name": "Salesforce News",
+        "url": "https://www.salesforce.com/news/stories/2025/09/19/dreamforce-einstein-copilot-agents/"
+      },
+      "publishedAt": "2025-09-19T00:00:00Z",
+      "tags": [
+        "enterprise",
+        "crm",
+        "deployment",
+        "sales"
+      ],
+      "signal": "Update"
+    },
+    {
+      "id": "stanford-ai-scientist-agent-20250925",
+      "title": {
+        "en": "Stanford researchers develop an AI agent for autonomous scientific discovery",
+        "zh": "斯坦福大学研究者开发用于自主科学发现的 AI Agent"
+      },
+      "summary": {
+        "en": "A new framework, 'Eureka-Chem,' enables an agent to design, execute, and analyze chemistry experiments autonomously, demonstrating the potential to accelerate materials discovery.",
+        "zh": "一个名为“Eureka-Chem”的新框架使 Agent 能够自主设计、执行和分析化学实验，展示了其在加速材料科学发现方面的潜力。"
+      },
+      "source": {
+        "name": "Stanford AI Lab Blog",
+        "url": "https://ai.stanford.edu/blog/eureka-chem/"
+      },
+      "publishedAt": "2025-09-25T00:00:00Z",
+      "tags": [
+        "research",
+        "science",
+        "autonomous-systems"
+      ],
+      "signal": "Insight"
+    },
+    {
+      "id": "a16z-agents-as-platforms-20251005",
+      "title": {
+        "en": "a16z analysis: 'The Shift from Applications to Agents'",
+        "zh": "a16z 分析：“从应用到 Agent”的范式转移"
+      },
+      "summary": {
+        "en": "Andreessen Horowitz published a widely-circulated analysis on the architectural shift towards agent-first software, predicting that agents will become the new platforms for user interaction and value creation, replacing traditional apps.",
+        "zh": "Andreessen Horowitz 发布了一篇流传甚广的分析文章，探讨向 Agent-First 软件的架构转变，预测 Agent 将成为用户交互和价值创造的新平台，并取代传统应用。"
+      },
+      "source": {
+        "name": "Andreessen Horowitz (a16z)",
+        "url": "https://a16z.com/the-shift-from-applications-to-agents/"
+      },
+      "publishedAt": "2025-10-05T00:00:00Z",
+      "tags": [
+        "analysis",
+        "venture-capital",
+        "product-strategy"
+      ],
+      "signal": "Insight"
+    },
+    {
+      "id": "tencent-hunyuan-agent-framework-20251010",
+      "title": {
+        "en": "Tencent open-sources Hunyuan-Agent framework for complex task solving",
+        "zh": "腾讯开源混元 Agent 框架，面向复杂任务求解"
+      },
+      "summary": {
+        "en": "Tencent AI Lab has open-sourced its Hunyuan-Agent framework, which includes multi-agent communication protocols and a tool library designed to tackle complex, multi-step tasks in digital environments.",
+        "zh": "腾讯 AI Lab 开源了其混元 Agent 框架，该框架包含多智能体通信协议和工具库，旨在解决数字环境中的复杂多步任务。"
+      },
+      "source": {
+        "name": "Tencent AI Lab",
+        "url": "https://cloud.tencent.com/document/product/1729"
+      },
+      "publishedAt": "2025-10-10T00:00:00Z",
+      "tags": [
+        "framework",
+        "open-source",
+        "multi-agent"
+      ],
+      "signal": "Framework"
+    },
+    {
       "id": "anthropic-latency-benchmark-20250115",
       "title": {
         "en": "Anthropic shares latency benchmark suite for Claude agents",
