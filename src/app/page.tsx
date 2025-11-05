@@ -40,7 +40,7 @@ const HERO_COPY = {
   },
 } satisfies Record<string, LocalizedText | Record<string, LocalizedText>>;
 
-const NAV_LINKS: Array<{ href: string; label: LocalizedText }> = [
+const NAV_LINKS: Array<{ href: string; label: LocalizedText; external?: boolean }> = [
   {
     href: "#principles",
     label: { en: "Agent 101", zh: "入门原理" },
@@ -56,6 +56,11 @@ const NAV_LINKS: Array<{ href: string; label: LocalizedText }> = [
   {
     href: "#collaboration",
     label: { en: "Multi-agent", zh: "协作编排" },
+  },
+  {
+    href: "/reactAgent",
+    label: { en: "ReactAgent Lifecycle", zh: "ReactAgent 生命周期" },
+    external: true,
   },
   {
     href: "#resources",
@@ -762,15 +767,25 @@ export default function HomePage() {
               isSectionRailVisible ? "lg:hidden" : undefined,
             )}
           >
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                className="hover:text-[color:var(--color-foreground)] transition"
-                href={link.href}
-              >
-                {language === "zh" ? link.label.zh : link.label.en}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.external ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-[color:var(--color-foreground)] transition"
+                >
+                  {language === "zh" ? link.label.zh : link.label.en}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  className="hover:text-[color:var(--color-foreground)] transition"
+                  href={link.href}
+                >
+                  {language === "zh" ? link.label.zh : link.label.en}
+                </a>
+              ),
+            )}
           </nav>
           <div className="flex items-center gap-3">
             <button
@@ -1131,6 +1146,36 @@ export default function HomePage() {
                     </div>
                   ))}
                 </aside>
+              </div>
+
+              {/* Deep Dive Card */}
+              <div className="mx-auto mt-12 max-w-3xl">
+                <Link
+                  href="/reactAgent"
+                  className="group relative block overflow-hidden rounded-2xl border-2 border-[color:var(--color-border)] bg-gradient-to-br from-[color:var(--color-card)] to-[color:var(--color-background)] p-8 shadow-lg transition-all hover:-translate-y-1 hover:shadow-2xl hover:border-[color:var(--color-accent)]"
+                >
+                  <div className="flex items-start gap-6">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-[color:var(--color-accent)] text-2xl">
+                      📖
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-[color:var(--color-foreground)] group-hover:text-[color:var(--color-accent)] transition-colors">
+                        {language === "zh"
+                          ? "想深入了解完整的生命周期?"
+                          : "Want to dive deeper into the complete lifecycle?"}
+                      </h3>
+                      <p className="mt-2 text-sm text-[color:var(--color-muted)]">
+                        {language === "zh"
+                          ? "深入了解 ReactAgent 从初始化到执行的完整工作流程,包括核心机制、工具实现和架构设计亮点。"
+                          : "Deep dive into ReactAgent's complete workflow from initialization to execution, including core mechanisms, tool implementations, and architectural highlights."}
+                      </p>
+                      <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[color:var(--color-accent)]">
+                        {language === "zh" ? "查看完整文档" : "View full documentation"}
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </div>
             </section>
 

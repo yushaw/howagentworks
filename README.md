@@ -126,3 +126,29 @@ npm run lint
 ## 反馈与迭代
 - 欢迎对内容、布局或数据源提出改进建议。
 - 如果需要扩展更多区块或引入多语言，请保持组件化设计，复用 `LocalizedHeading`、`LocalizedParagraph` 等辅助方法；新增图片请放入 `public/images/` 并在 README 中更新引用说明。
+
+---
+
+## 更新日志
+
+### 2025-01-05
+**新增 ReactAgent 生命周期深度解析页面**
+- 创建独立页面 `/reactAgent` 展示 ReactAgent 完整生命周期文档
+- 实现双语支持(中英文),文档自动根据用户语言偏好加载
+- 实现以下功能:
+  - 侧边栏目录导航,支持多级标题
+  - 自动提取文档标题生成锚点链接
+  - 响应式设计,移动端支持折叠目录
+  - Intersection Observer 实现滚动高亮当前章节
+  - Tailwind Typography 优化 Markdown 渲染样式
+  - 代码块语法高亮和行号显示
+- 在首页导航栏添加 "ReactAgent 生命周期" 链接
+- 在首页 "How it works" 章节末尾添加引导卡片,引导用户深入了解
+- 文档位置:
+  - 中文: `/docs/reactAgent.zh.md` 和 `/public/docs/reactAgent.zh.md`
+  - 英文: `/docs/reactAgent.en.md` 和 `/public/docs/reactAgent.en.md`
+- 技术实现:
+  - 使用 `@tailwindcss/typography` 插件美化 Markdown 渲染
+  - 客户端动态加载 Markdown 文件
+  - 自定义 Markdown 渲染器支持代码高亮
+  - 支持主题切换(亮色/暗色模式)
