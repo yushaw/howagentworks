@@ -16,7 +16,7 @@ export function LocalizedHeading({
   return (
     <h2
       {...props}
-      className={className}
+      className={cn("!m-0", className)}
     >
       {language === "en" ? text.en : text.zh}
     </h2>
@@ -40,7 +40,7 @@ export function LocalizedParagraph({
     <p
       {...props}
       className={cn(
-        "leading-relaxed",
+        "!m-0 leading-relaxed",
         align === "center" ? "text-center" : "text-left",
         className,
       )}

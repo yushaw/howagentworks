@@ -1046,16 +1046,16 @@ export default function HomePage() {
                     <LocalizedParagraph
                       text={principle.description}
                       language={language}
-                      className="text-sm text-[color:var(--color-muted)]"
+                      className="text-sm leading-relaxed text-[color:var(--color-muted)]"
                     />
-                    <ul className="flex flex-col gap-3 text-sm text-[color:var(--color-foreground)]">
+                    <ul className="flex flex-col gap-2.5 text-sm text-[color:var(--color-foreground)]">
                       {principle.bullets.map((bullet, index) => (
-                        <li key={index} className="flex gap-3">
-                          <span className="mt-1 size-1.5 rounded-full bg-[color:var(--color-accent)]" />
+                        <li key={index} className="flex items-start gap-2.5">
+                          <span className="mt-[0.35em] size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
                           <LocalizedParagraph
                             text={bullet}
                             language={language}
-                            className="text-[0.95rem]"
+                            className="text-[0.875rem] leading-relaxed"
                           />
                         </li>
                       ))}
@@ -1096,7 +1096,7 @@ export default function HomePage() {
                           <span className="hidden h-full w-px bg-[color:var(--color-border)]/70 sm:block" aria-hidden="true" />
                         ) : null}
                       </div>
-                      <div className="flex-1 space-y-4">
+                      <div className="flex-1">
                         <LocalizedHeading
                           text={step.title}
                           language={language}
@@ -1105,9 +1105,9 @@ export default function HomePage() {
                         <LocalizedParagraph
                           text={step.detail}
                           language={language}
-                          className="text-sm text-[color:var(--color-muted)]"
+                          className="mt-4 text-sm text-[color:var(--color-muted)]"
                         />
-                        <div className="rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-background)]/70 p-4 text-xs text-[color:var(--color-muted-strong)]">
+                        <div className="mt-4 rounded-xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-background)]/70 p-4 text-xs text-[color:var(--color-muted-strong)]">
                           <LocalizedParagraph text={step.artifact} language={language} />
                         </div>
                       </div>
@@ -1133,12 +1133,12 @@ export default function HomePage() {
                       />
                       <ul className="mt-4 flex flex-col gap-3 text-sm text-[color:var(--color-muted-strong)]">
                         {callout.bullets.map((bullet, index) => (
-                          <li key={index} className="flex gap-3">
-                            <span className="mt-[6px] size-1.5 rounded-full bg-[color:var(--color-accent)]" />
+                          <li key={index} className="flex items-start gap-2.5">
+                            <span className="mt-[0.35em] size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
                             <LocalizedParagraph
                               text={bullet}
                               language={language}
-                              className="text-[0.95rem]"
+                              className="text-[0.875rem]"
                             />
                           </li>
                         ))}
@@ -1234,9 +1234,9 @@ export default function HomePage() {
                     />
                     <ul className="flex flex-col gap-3 text-sm text-[color:var(--color-foreground)]">
                       {pillar.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex gap-2">
-                          <span className="mt-1 size-2 rounded-sm bg-[color:var(--color-accent)]" />
-                          <LocalizedParagraph text={item} language={language} />
+                        <li key={itemIndex} className="flex items-start gap-2.5">
+                          <span className="mt-[0.35em] size-1.5 shrink-0 rounded-full bg-[color:var(--color-accent)]" />
+                          <LocalizedParagraph text={item} language={language} className="text-[0.875rem]" />
                         </li>
                       ))}
                     </ul>
