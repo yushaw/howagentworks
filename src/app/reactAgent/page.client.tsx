@@ -594,7 +594,7 @@ export default function ReactAgentPageClient() {
       {scrolled && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl"
+          className="fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl hover:border-accent hover:text-accent"
           aria-label="Back to top"
         >
           <svg
