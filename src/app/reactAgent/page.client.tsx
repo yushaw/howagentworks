@@ -5,7 +5,6 @@ import Link from "next/link";
 import { MoonIcon, SunIcon } from "@/components/icons";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useUserPreferences } from "@/hooks/useUserPreferences";
-import type { Language } from "@/lib/i18n";
 import { LANGUAGE_TOGGLE_ARIA, LANGUAGE_TOGGLE_LABEL, THEME_TOGGLE_LABELS } from "@/lib/ui-copy";
 import { cn } from "@/lib/utils";
 
@@ -105,7 +104,7 @@ export default function ReactAgentPageClient() {
           }
         });
         setToc(headings);
-      } catch (err) {
+      } catch {
         setError(true);
       } finally {
         setLoading(false);
@@ -227,7 +226,7 @@ export default function ReactAgentPageClient() {
 
     // Replace headers with section numbers AND IDs - process in order
     const lines = html.split('\n');
-    let h1Count = 0, h2Count = 0, h3Count = 0;
+    let h2Count = 0, h3Count = 0;
     const idCounts = new Map<string, number>();
 
     const generateId = (title: string): string => {
@@ -259,7 +258,7 @@ export default function ReactAgentPageClient() {
         const id = generateId(title);
         return `<h2 id="${id}"><span class="section-number">${h2Count}</span> ${title}</h2>`;
       } else if (line.match(/^# (.+)$/)) {
-        h1Count++;
+        // H1 - no section number displayed
         h2Count = 0;
         h3Count = 0;
         const title = line.replace(/^# /, '').trim();
@@ -591,7 +590,7 @@ export default function ReactAgentPageClient() {
         </button>
       )}
 
-      <SiteFooter />
+      <SiteFooter language={language} />
     </div>
   );
 }
