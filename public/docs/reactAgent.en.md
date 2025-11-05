@@ -1155,9 +1155,3 @@
 - **Layer 3**: Tool Config Rules (configuration-driven)
 - **Layer 4**: Default Rules (safe command whitelist)
 - **Code**: `generalAgent/hitl/approval_checker.py:40-231`
-
----
-
-**Document Version**: v1.0
-**Last Updated**: 2025-01-XX
-**Maintainer**: AgentGraph Team

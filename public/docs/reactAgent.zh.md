@@ -1155,9 +1155,3 @@
 - **Layer 3**: Tool Config Rules (配置驱动)
 - **Layer 4**: Default Rules (安全命令白名单)
 - **代码**: `generalAgent/hitl/approval_checker.py:40-231`
-
----
-
-**文档版本**: v1.0
-**最后更新**: 2025-01-XX
-**维护者**: AgentGraph Team

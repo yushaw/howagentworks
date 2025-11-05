@@ -18,8 +18,12 @@ const HERO_COPY = {
     zh: "ReactAgent 完整生命周期流程",
   },
   subtitle: {
-    en: "This document details the complete lifecycle of ReactAgent from startup to execution, including all core mechanisms, external dependencies, and code location references.",
-    zh: "本文档详细描述了 ReactAgent 从启动到执行的完整生命周期,包括所有核心机制、外部依赖和代码位置索引。",
+    en: "A comprehensive guide to understanding ReactAgent's architecture and implementation details.",
+    zh: "全面了解 ReactAgent 的架构设计和实现细节。",
+  },
+  intro: {
+    en: "ReactAgent is a sophisticated AI agent framework that orchestrates the complete workflow from user input to task completion. This documentation provides a comprehensive walkthrough of its architecture, covering initialization processes, execution loops, core mechanisms like tool management and context handling, and the intricate details of how different components work together to deliver intelligent agent behaviors.",
+    zh: "ReactAgent 是一个复杂的 AI Agent 框架,负责协调从用户输入到任务完成的完整工作流程。本文档全面介绍了它的架构设计,涵盖初始化流程、执行循环、工具管理和上下文处理等核心机制,以及各个组件如何协同工作以实现智能化的 Agent 行为。",
   },
   backToHome: {
     en: "← Back to Home",
@@ -268,11 +272,11 @@ export default function ReactAgentPageClient() {
       return line;
     }).join('\n');
 
-    // Replace bold
-    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    // Replace bold (must be on same line)
+    html = html.replace(/\*\*([^\n*]+?)\*\*/g, "<strong>$1</strong>");
 
-    // Replace italic
-    html = html.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, "<em>$1</em>");
+    // Replace italic (must be on same line, not adjacent to other *)
+    html = html.replace(/(?<!\*)\*([^\n*]+?)\*(?!\*)/g, "<em>$1</em>");
 
     // Replace links
     html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
@@ -553,14 +557,34 @@ export default function ReactAgentPageClient() {
             )}
 
             {!loading && !error && (
-              <article
-                ref={contentRef}
-                className="max-w-none text-base leading-relaxed"
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                }}
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
-              />
+              <>
+                {/* Introduction Section */}
+                <div className="mb-12 rounded-2xl border border-border bg-gradient-to-br from-card to-background p-8 shadow-sm">
+                  <div className="flex items-start gap-4">
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-2xl">
+                      📚
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="mb-3 text-xl font-semibold text-foreground">
+                        {language === "zh" ? "关于本文档" : "About This Documentation"}
+                      </h2>
+                      <p className="text-[0.9375rem] leading-relaxed text-muted-foreground">
+                        {HERO_COPY.intro[language]}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Main Documentation Content */}
+                <article
+                  ref={contentRef}
+                  className="max-w-none text-base leading-relaxed"
+                  style={{
+                    fontFamily: 'var(--font-sans)',
+                  }}
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(content) }}
+                />
+              </>
             )}
           </main>
         </div>
