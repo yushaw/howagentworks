@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-10-16T23:01:00.270Z",
+  "lastUpdated": "2025-11-13T23:00:52.266Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -378,6 +378,29 @@
         "tooling",
         "platform",
         "deployment"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-sima-2-an-agent-for-playing-20251113",
+      "title": {
+        "en": "SIMA 2: An Agent for Playing, Reasoning, and Learning in 3D Virtual Worlds",
+        "zh": "SIMA 2：在3D虚拟世界中与你一起玩耍、推理和学习的智能体"
+      },
+      "summary": {
+        "en": "DeepMind introduces SIMA 2, an advanced agent that interacts, reasons, and learns collaboratively in virtual 3D environments, enhancing capabilities in gaming and simulation.",
+        "zh": "DeepMind推出SIMA 2，这是一个先进的智能体，能够在虚拟3D环境中进行交互、推理和协作学习，提升在游戏和模拟中的能力。"
+      },
+      "source": {
+        "name": "DeepMind Blog",
+        "url": "https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/"
+      },
+      "publishedAt": "2025-11-13T15:29:38.000Z",
+      "tags": [
+        "agents",
+        "research",
+        "multi-agent",
+        "tooling"
       ],
       "signal": "Launch"
     }
