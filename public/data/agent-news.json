@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-11-22T23:00:50.505Z",
+  "lastUpdated": "2025-11-24T23:00:51.066Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -426,6 +426,29 @@
         "best-practices"
       ],
       "signal": "Insight"
+    },
+    {
+      "id": "hn-anthropic-releases-advanced-tool-use-for-20251124",
+      "title": {
+        "en": "Anthropic Releases Advanced Tool Use for Claude",
+        "zh": "Anthropic 发布 Claude 高级工具使用功能"
+      },
+      "summary": {
+        "en": "Anthropic has introduced advanced tool use features for Claude, enhancing its ability to interact with external tools and APIs, improving agentic capabilities for complex tasks.",
+        "zh": "Anthropic 为 Claude 引入了高级工具使用功能，增强了其与外部工具和 API 交互的能力，提升了复杂任务的代理能力。"
+      },
+      "source": {
+        "name": "Anthropic Engineering Blog",
+        "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+      },
+      "publishedAt": "2025-11-24T19:21:35.000Z",
+      "tags": [
+        "agents",
+        "tooling",
+        "update",
+        "framework"
+      ],
+      "signal": "Update"
     }
   ]
 }
