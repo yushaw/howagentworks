@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-11-24T23:00:51.066Z",
+  "lastUpdated": "2025-12-24T23:00:51.481Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -449,6 +449,29 @@
         "framework"
       ],
       "signal": "Update"
+    },
+    {
+      "id": "hn-vibium-browser-automation-tool-for-ai-20251224",
+      "title": {
+        "en": "Vibium: Browser Automation Tool for AI Agents and Humans Launches by Selenium Creator",
+        "zh": "Vibium：Selenium 创始人推出面向AI代理和人类的浏览器自动化工具"
+      },
+      "summary": {
+        "en": "Jason Huggins (creator of Selenium) launches Vibium, an open-source browser automation tool designed specifically for AI agents and human users, enabling programmatic web interaction capabilities.",
+        "zh": "Selenium 创始人 Jason Huggins 发布 Vibium，这是一款专为AI代理和人类用户设计的开源浏览器自动化工具，提供程序化网页交互能力。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/VibiumDev/vibium"
+      },
+      "publishedAt": "2025-12-24T17:49:02.000Z",
+      "tags": [
+        "tooling",
+        "agents",
+        "browser-automation",
+        "open-source"
+      ],
+      "signal": "Launch"
     }
   ]
 }
