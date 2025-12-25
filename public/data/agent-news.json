@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-12-24T23:00:51.481Z",
+  "lastUpdated": "2025-12-25T23:00:50.666Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -472,6 +472,29 @@
         "open-source"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-asterisk-ai-voice-agent-open-source-20251224",
+      "title": {
+        "en": "Asterisk AI Voice Agent: Open-Source Voice Agent Framework",
+        "zh": "Asterisk AI 语音代理：开源语音代理框架"
+      },
+      "summary": {
+        "en": "Open-source project implementing AI-powered voice agents using Asterisk PBX system, enabling voice interaction capabilities for agentic systems.",
+        "zh": "使用 Asterisk PBX 系统实现 AI 语音代理的开源项目，为代理系统提供语音交互能力。"
+      },
+      "source": {
+        "name": "GitHub",
+        "url": "https://github.com/hkjarral/Asterisk-AI-Voice-Agent"
+      },
+      "publishedAt": "2025-12-24T23:25:37.000Z",
+      "tags": [
+        "agents",
+        "framework",
+        "deployment",
+        "tooling"
+      ],
+      "signal": "Framework"
     }
   ]
 }
