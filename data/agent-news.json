@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-12-25T23:00:50.666Z",
+  "lastUpdated": "2025-12-27T23:00:51.719Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -495,6 +495,29 @@
         "tooling"
       ],
       "signal": "Framework"
+    },
+    {
+      "id": "hn-mysti-multi-agent-code-analysis-with-20251223",
+      "title": {
+        "en": "Mysti: Multi-Agent Code Analysis with Claude, Codex, and Gemini",
+        "zh": "Mysti：基于Claude、Codex和Gemini的多智能体代码分析工具"
+      },
+      "summary": {
+        "en": "Mysti is an open-source tool that orchestrates multiple LLMs (Claude, Codex, Gemini) to debate code quality and synthesize consensus recommendations, demonstrating multi-agent collaboration patterns.",
+        "zh": "Mysti是一个开源工具，协调多个大语言模型（Claude、Codex、Gemini）进行代码质量辩论并综合共识建议，展示了多智能体协作模式。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/DeepMyst/Mysti"
+      },
+      "publishedAt": "2025-12-23T13:18:32.000Z",
+      "tags": [
+        "multi-agent",
+        "framework",
+        "coding",
+        "tooling"
+      ],
+      "signal": "Launch"
     }
   ]
 }
