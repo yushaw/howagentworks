@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2025-12-27T23:00:51.719Z",
+  "lastUpdated": "2026-02-01T23:00:37.952Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -518,6 +518,29 @@
         "tooling"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-building-a-minimalist-coding-agent-lessons-20260201",
+      "title": {
+        "en": "Building a Minimalist Coding Agent: Lessons from Development",
+        "zh": "构建简约编码智能体：开发经验分享"
+      },
+      "summary": {
+        "en": "Developer shares insights from creating an opinionated, minimal coding agent, discussing design decisions, implementation challenges, and practical learnings about agent architecture.",
+        "zh": "开发者分享构建一个具有特定设计理念的简约编码智能体的经验，探讨设计决策、实施挑战以及智能体架构的实际学习心得。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://mariozechner.at/posts/2025-11-30-pi-coding-agent/"
+      },
+      "publishedAt": "2026-02-01T09:33:46.000Z",
+      "tags": [
+        "agents",
+        "coding",
+        "tooling",
+        "best-practices"
+      ],
+      "signal": "Insight"
     }
   ]
 }
