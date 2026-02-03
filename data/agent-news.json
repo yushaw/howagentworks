@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-02-01T23:00:37.952Z",
+  "lastUpdated": "2026-02-03T23:00:41.902Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -541,6 +541,52 @@
         "best-practices"
       ],
       "signal": "Insight"
+    },
+    {
+      "id": "hn-agentskills-io-launches-as-platform-for-20260203",
+      "title": {
+        "en": "AgentSkills.io Launches as Platform for Discovering and Sharing LLM Agent Skills",
+        "zh": "AgentSkills.io 上线：LLM 智能体技能发现与共享平台"
+      },
+      "summary": {
+        "en": "AgentSkills.io is a new platform that enables users to discover, share, and potentially integrate pre-built skills for LLM agents, aiming to accelerate agent development through reusable components.",
+        "zh": "AgentSkills.io 是一个新平台，允许用户发现、共享并可能集成预构建的 LLM 智能体技能，旨在通过可重用组件加速智能体开发。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://agentskills.io/home"
+      },
+      "publishedAt": "2026-02-03T14:09:54.000Z",
+      "tags": [
+        "agents",
+        "platform",
+        "tooling",
+        "best-practices"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-apple-xcode-26-3-adds-direct-20260203",
+      "title": {
+        "en": "Apple Xcode 26.3 Adds Direct Coding Agent Integration",
+        "zh": "苹果 Xcode 26.3 新增直接编码代理集成功能"
+      },
+      "summary": {
+        "en": "Apple's Xcode 26.3 update enables developers to leverage coding agents directly within the IDE, marking a significant deployment of agentic systems in mainstream development tools.",
+        "zh": "苹果 Xcode 26.3 更新允许开发者在 IDE 中直接使用编码代理，标志着代理系统在主流开发工具中的重要部署。"
+      },
+      "source": {
+        "name": "Apple Newsroom",
+        "url": "https://www.apple.com/newsroom/2026/02/xcode-26-point-3-unlocks-the-power-of-agentic-coding/"
+      },
+      "publishedAt": "2026-02-03T18:04:08.000Z",
+      "tags": [
+        "deployment",
+        "coding",
+        "tooling",
+        "agents"
+      ],
+      "signal": "Deployment"
     }
   ]
 }
