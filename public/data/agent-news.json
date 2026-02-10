@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-02-08T23:00:40.217Z",
+  "lastUpdated": "2026-02-10T23:00:41.639Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -633,6 +633,29 @@
         "platform"
       ],
       "signal": "Framework"
+    },
+    {
+      "id": "hn-ex-github-ceo-launches-entire-platform-20260210",
+      "title": {
+        "en": "Ex-GitHub CEO Launches Entire Platform for AI Agent Development",
+        "zh": "前GitHub CEO推出AI智能体开发平台Entire"
+      },
+      "summary": {
+        "en": "Nat Friedman, former GitHub CEO, announces Entire - a new platform for building, testing, and deploying AI agents with integrated tools and infrastructure.",
+        "zh": "前GitHub CEO Nat Friedman宣布推出Entire平台，提供构建、测试和部署AI智能体的集成工具和基础设施。"
+      },
+      "source": {
+        "name": "Entire.io Blog",
+        "url": "https://entire.io/blog/hello-entire-world/"
+      },
+      "publishedAt": "2026-02-10T15:44:47.000Z",
+      "tags": [
+        "platform",
+        "agents",
+        "tooling",
+        "deployment"
+      ],
+      "signal": "Launch"
     }
   ]
 }
