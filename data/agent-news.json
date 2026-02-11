@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-02-10T23:00:41.639Z",
+  "lastUpdated": "2026-02-11T23:00:39.053Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -656,6 +656,52 @@
         "deployment"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-z-ai-launches-glm-5-transitioning-20260211",
+      "title": {
+        "en": "Z.ai Launches GLM-5: Transitioning from Vibe Coding to Agentic Engineering",
+        "zh": "Z.ai 发布 GLM-5：从氛围编程转向智能体工程"
+      },
+      "summary": {
+        "en": "Z.ai introduces GLM-5, a new model designed specifically for agentic systems with improved reasoning, tool use, and multi-agent orchestration capabilities.",
+        "zh": "Z.ai 推出 GLM-5，这是一款专为智能体系统设计的新模型，具备改进的推理、工具使用和多智能体编排能力。"
+      },
+      "source": {
+        "name": "Z.ai Blog",
+        "url": "https://z.ai/blog/glm-5"
+      },
+      "publishedAt": "2026-02-11T16:41:33.000Z",
+      "tags": [
+        "agents",
+        "framework",
+        "multi-agent",
+        "orchestration"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-ai-agents-control-simcity-through-rest-20260209",
+      "title": {
+        "en": "AI Agents Control SimCity Through REST API in Show HN Demo",
+        "zh": "AI代理通过REST API控制《模拟城市》在Show HN演示中"
+      },
+      "summary": {
+        "en": "Developer demonstrates AI agents autonomously playing SimCity 2000 via REST API interface, showcasing practical agent deployment in gaming environment with community discussion.",
+        "zh": "开发者展示AI代理通过REST API接口自主玩《模拟城市2000》，展示了在游戏环境中的实际代理部署，并引发社区讨论。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://hallucinatingsplines.com"
+      },
+      "publishedAt": "2026-02-09T15:54:33.000Z",
+      "tags": [
+        "agents",
+        "deployment",
+        "tooling",
+        "multi-agent"
+      ],
+      "signal": "Deployment"
     }
   ]
 }
