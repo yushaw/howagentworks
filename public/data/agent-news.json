@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-02-11T23:00:39.053Z",
+  "lastUpdated": "2026-02-16T23:00:38.470Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -702,6 +702,29 @@
         "multi-agent"
       ],
       "signal": "Deployment"
+    },
+    {
+      "id": "hn-qwen3-5-advancing-native-multimodal-agent-20260216",
+      "title": {
+        "en": "Qwen3.5: Advancing Native Multimodal Agent Capabilities",
+        "zh": "Qwen3.5：迈向原生多模态智能体"
+      },
+      "summary": {
+        "en": "Qwen team announces Qwen3.5 with enhanced multimodal understanding for building native multimodal agents, demonstrating progress in agentic AI systems.",
+        "zh": "Qwen团队发布Qwen3.5，增强多模态理解能力，用于构建原生多模态智能体，展示了智能体AI系统的进展。"
+      },
+      "source": {
+        "name": "Qwen Blog",
+        "url": "https://qwen.ai/blog?id=qwen3.5"
+      },
+      "publishedAt": "2026-02-16T09:32:21.000Z",
+      "tags": [
+        "agents",
+        "research",
+        "multi-agent",
+        "tooling"
+      ],
+      "signal": "Research"
     }
   ]
 }
