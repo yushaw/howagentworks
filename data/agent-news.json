@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-02-16T23:00:38.470Z",
+  "lastUpdated": "2026-03-10T23:00:59.555Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -725,6 +725,29 @@
         "tooling"
       ],
       "signal": "Research"
+    },
+    {
+      "id": "hn-meta-acquires-agent-platform-moltbook-20260310",
+      "title": {
+        "en": "Meta Acquires Agent Platform Moltbook",
+        "zh": "Meta收购代理平台Moltbook"
+      },
+      "summary": {
+        "en": "Meta has acquired Moltbook, a company developing agent technology for social networks, signaling increased investment in AI agent capabilities.",
+        "zh": "Meta已收购Moltbook，这家公司为社交网络开发代理技术，表明Meta正在加大对AI代理能力的投资。"
+      },
+      "source": {
+        "name": "Axios",
+        "url": "https://www.axios.com/2026/03/10/meta-facebook-moltbook-agent-social-network"
+      },
+      "publishedAt": "2026-03-10T14:38:06.000Z",
+      "tags": [
+        "acquisition",
+        "agents",
+        "platform",
+        "enterprise"
+      ],
+      "signal": "Acquisition"
     }
   ]
 }
