@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-03-10T23:00:59.555Z",
+  "lastUpdated": "2026-03-20T23:01:00.900Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -748,6 +748,29 @@
         "enterprise"
       ],
       "signal": "Acquisition"
+    },
+    {
+      "id": "hn-opencode-open-source-ai-coding-agent-20260320",
+      "title": {
+        "en": "OpenCode: Open-Source AI Coding Agent Launches",
+        "zh": "OpenCode：开源AI编程助手正式发布"
+      },
+      "summary": {
+        "en": "OpenCode.ai launches as an open-source AI coding agent, enabling automated code generation and development assistance through agentic systems.",
+        "zh": "OpenCode.ai作为开源AI编程助手发布，通过智能体系统实现自动化代码生成和开发辅助。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://opencode.ai/"
+      },
+      "publishedAt": "2026-03-20T21:03:52.000Z",
+      "tags": [
+        "agents",
+        "coding",
+        "open-source",
+        "tooling"
+      ],
+      "signal": "Launch"
     }
   ]
 }
