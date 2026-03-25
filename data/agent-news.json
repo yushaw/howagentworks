@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-03-20T23:01:00.900Z",
+  "lastUpdated": "2026-03-25T23:01:00.363Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -771,6 +771,29 @@
         "tooling"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-github-updates-copilot-interaction-data-usage-20260325",
+      "title": {
+        "en": "GitHub Updates Copilot Interaction Data Usage Policy",
+        "zh": "GitHub 更新 Copilot 交互数据使用政策"
+      },
+      "summary": {
+        "en": "GitHub has announced updates to its data usage policy for GitHub Copilot interactions, clarifying how user interaction data is handled and processed.",
+        "zh": "GitHub 宣布更新 GitHub Copilot 交互数据使用政策，明确了用户交互数据的处理方式。"
+      },
+      "source": {
+        "name": "GitHub Blog",
+        "url": "https://github.blog/news-insights/company-news/updates-to-github-copilot-interaction-data-usage-policy/"
+      },
+      "publishedAt": "2026-03-25T19:09:16.000Z",
+      "tags": [
+        "policy",
+        "tooling",
+        "enterprise",
+        "deployment"
+      ],
+      "signal": "Policy"
     }
   ]
 }
