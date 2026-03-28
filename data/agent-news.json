@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-03-25T23:01:00.363Z",
+  "lastUpdated": "2026-03-28T23:00:28.194Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -794,6 +794,29 @@
         "deployment"
       ],
       "signal": "Policy"
+    },
+    {
+      "id": "hn-stanford-jai-framework-secure-agent-execution-20260328",
+      "title": {
+        "en": "Stanford JAI Framework: Secure Agent Execution with Filesystem Isolation",
+        "zh": "斯坦福JAI框架：通过文件系统隔离实现安全代理执行"
+      },
+      "summary": {
+        "en": "Stanford researchers introduce JAI, a framework enabling LLM agents to execute code safely by isolating filesystem access, addressing security concerns in agent deployment.",
+        "zh": "斯坦福研究人员推出JAI框架，通过隔离文件系统访问使LLM代理能够安全执行代码，解决代理部署中的安全问题。"
+      },
+      "source": {
+        "name": "Stanford University",
+        "url": "https://jai.scs.stanford.edu/"
+      },
+      "publishedAt": "2026-03-28T00:39:54.000Z",
+      "tags": [
+        "agents",
+        "framework",
+        "research",
+        "security"
+      ],
+      "signal": "Framework"
     }
   ]
 }
