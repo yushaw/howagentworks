@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-03-28T23:00:28.194Z",
+  "lastUpdated": "2026-04-02T23:00:27.790Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -817,6 +817,29 @@
         "security"
       ],
       "signal": "Framework"
+    },
+    {
+      "id": "hn-qwen3-6-plus-released-with-enhanced-20260402",
+      "title": {
+        "en": "Qwen3.6-Plus Released with Enhanced Agent Capabilities",
+        "zh": "Qwen3.6-Plus发布，增强智能体能力"
+      },
+      "summary": {
+        "en": "Alibaba's Qwen team announces Qwen3.6-Plus, a major model update specifically designed for real-world agent applications with improved reasoning and tool usage capabilities.",
+        "zh": "阿里巴巴通义千问团队发布Qwen3.6-Plus，这是专为现实世界智能体应用设计的主要模型更新，具备改进的推理和工具使用能力。"
+      },
+      "source": {
+        "name": "Qwen Blog",
+        "url": "https://qwen.ai/blog?id=qwen3.6"
+      },
+      "publishedAt": "2026-04-02T14:28:52.000Z",
+      "tags": [
+        "agents",
+        "product",
+        "update",
+        "tooling"
+      ],
+      "signal": "Update"
     }
   ]
 }
