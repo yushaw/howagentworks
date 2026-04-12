@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-04-06T23:00:26.828Z",
+  "lastUpdated": "2026-04-12T23:00:29.873Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -863,6 +863,29 @@
         "tooling"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-uc-berkeley-research-exposes-vulnerabilities-in-20260411",
+      "title": {
+        "en": "UC Berkeley Research Exposes Vulnerabilities in AI Agent Benchmarks",
+        "zh": "加州大学伯克利分校研究揭示AI智能体基准测试的脆弱性"
+      },
+      "summary": {
+        "en": "Researchers from UC Berkeley's RDI published analysis showing how current AI agent benchmarks can be exploited, raising concerns about their reliability and trustworthiness for evaluating agentic systems.",
+        "zh": "加州大学伯克利分校RDI研究人员发布分析报告，揭示当前AI智能体基准测试如何被利用，引发对评估智能体系统可靠性和可信度的担忧。"
+      },
+      "source": {
+        "name": "UC Berkeley RDI Blog",
+        "url": "https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/"
+      },
+      "publishedAt": "2026-04-11T19:15:56.000Z",
+      "tags": [
+        "research",
+        "benchmarks",
+        "agents",
+        "best-practices"
+      ],
+      "signal": "Research"
     }
   ]
 }
