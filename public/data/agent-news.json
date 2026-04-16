@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-04-12T23:00:29.873Z",
+  "lastUpdated": "2026-04-16T23:00:30.136Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -886,6 +886,52 @@
         "best-practices"
       ],
       "signal": "Research"
+    },
+    {
+      "id": "hn-qwen3-6-35b-a3b-open-source-20260416",
+      "title": {
+        "en": "Qwen3.6-35B-A3B: Open-Source Agentic Coding Model Released",
+        "zh": "Qwen3.6-35B-A3B：开源智能体编码模型发布"
+      },
+      "summary": {
+        "en": "Alibaba's Qwen team has open-sourced Qwen3.6-35B-A3B, a specialized model for agentic coding tasks, making advanced agent capabilities accessible to developers.",
+        "zh": "阿里巴巴的Qwen团队开源了Qwen3.6-35B-A3B模型，专门用于智能体编码任务，使开发者能够访问先进的智能体能力。"
+      },
+      "source": {
+        "name": "Qwen Blog",
+        "url": "https://qwen.ai/blog?id=qwen3.6-35b-a3b"
+      },
+      "publishedAt": "2026-04-16T13:36:27.000Z",
+      "tags": [
+        "agents",
+        "coding",
+        "framework",
+        "open-source"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-cloudflare-launches-ai-platform-with-agent-20260416",
+      "title": {
+        "en": "Cloudflare Launches AI Platform with Agent-Optimized Inference Layer",
+        "zh": "Cloudflare 推出 AI 平台，包含针对智能体的推理层"
+      },
+      "summary": {
+        "en": "Cloudflare announces its AI Platform featuring an inference layer specifically designed for agentic systems, providing infrastructure to run AI models with agent workflows in mind.",
+        "zh": "Cloudflare 宣布推出 AI 平台，包含专门为智能体系统设计的推理层，提供支持智能体工作流的 AI 模型运行基础设施。"
+      },
+      "source": {
+        "name": "Cloudflare Blog",
+        "url": "https://blog.cloudflare.com/ai-platform/"
+      },
+      "publishedAt": "2026-04-16T13:17:37.000Z",
+      "tags": [
+        "platform",
+        "agents",
+        "deployment",
+        "tooling"
+      ],
+      "signal": "Launch"
     }
   ]
 }
