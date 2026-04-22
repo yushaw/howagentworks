@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-04-16T23:00:30.136Z",
+  "lastUpdated": "2026-04-22T23:00:13.153Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -932,6 +932,29 @@
         "tooling"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-google-announces-eighth-generation-tpus-optimized-20260422",
+      "title": {
+        "en": "Google Announces Eighth-Generation TPUs Optimized for Agentic AI Era",
+        "zh": "谷歌发布第八代TPU，专为智能体时代优化"
+      },
+      "summary": {
+        "en": "Google unveils its eighth-generation TPU hardware featuring two new chips designed specifically to accelerate agentic AI systems and workloads.",
+        "zh": "谷歌发布第八代TPU硬件，包含两款专为加速智能体AI系统和计算负载设计的新芯片。"
+      },
+      "source": {
+        "name": "Google Blog",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/eighth-generation-tpu-agentic-era/"
+      },
+      "publishedAt": "2026-04-22T12:15:29.000Z",
+      "tags": [
+        "agents",
+        "platform",
+        "tooling",
+        "deployment"
+      ],
+      "signal": "Update"
     }
   ]
 }
