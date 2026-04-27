@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-04-22T23:00:13.153Z",
+  "lastUpdated": "2026-04-27T23:00:15.852Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -955,6 +955,52 @@
         "deployment"
       ],
       "signal": "Update"
+    },
+    {
+      "id": "hn-github-copilot-is-moving-to-usage-20260427",
+      "title": {
+        "en": "GitHub Copilot is moving to usage-based billing",
+        "zh": "GitHub Copilot 转向基于使用量的计费模式"
+      },
+      "summary": {
+        "en": "GitHub announced that Copilot will adopt usage-based billing, replacing the previous per-user flat-rate model. This change affects individual and enterprise users, aligning costs with actual AI code completion usage.",
+        "zh": "GitHub 宣布 Copilot 将采用基于使用量的计费方式，取代之前的按用户固定费率模式。此变更影响个人和企业用户，使成本与实际 AI 代码补全使用量挂钩。"
+      },
+      "source": {
+        "name": "GitHub Blog",
+        "url": "https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/"
+      },
+      "publishedAt": "2026-04-27T16:03:08.000Z",
+      "tags": [
+        "product",
+        "deployment",
+        "enterprise",
+        "coding"
+      ],
+      "signal": "Update"
+    },
+    {
+      "id": "hn-show-hn-oss-agent-i-built-20260427",
+      "title": {
+        "en": "Show HN: OSS Agent I built topped the TerminalBench on Gemini-3-flash-preview",
+        "zh": "Show HN：我构建的开源代理在 Gemini-3-flash-preview 上登顶 TerminalBench"
+      },
+      "summary": {
+        "en": "An open-source agent called Dirac achieves top performance on TerminalBench using Gemini-3-flash-preview. The project is available on GitHub.",
+        "zh": "名为 Dirac 的开源代理使用 Gemini-3-flash-preview 在 TerminalBench 上取得最佳性能。该项目已在 GitHub 上开源。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/dirac-run/dirac"
+      },
+      "publishedAt": "2026-04-27T12:35:55.000Z",
+      "tags": [
+        "agents",
+        "benchmarks",
+        "open-source",
+        "terminal"
+      ],
+      "signal": "Benchmark"
     }
   ]
 }
