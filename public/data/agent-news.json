@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-04-27T23:00:15.852Z",
+  "lastUpdated": "2026-05-05T23:00:08.575Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1001,6 +1001,29 @@
         "terminal"
       ],
       "signal": "Benchmark"
+    },
+    {
+      "id": "hn-agents-for-financial-services-and-insurance-20260505",
+      "title": {
+        "en": "Agents for financial services and insurance",
+        "zh": "面向金融服务和保险的智能体"
+      },
+      "summary": {
+        "en": "Anthropic announces specialized agents for financial services and insurance, detailing use cases and deployment strategies.",
+        "zh": "Anthropic 宣布推出面向金融服务和保险的专用智能体，详述用例和部署策略。"
+      },
+      "source": {
+        "name": "Anthropic",
+        "url": "https://www.anthropic.com/news/finance-agents"
+      },
+      "publishedAt": "2026-05-05T15:05:47.000Z",
+      "tags": [
+        "agents",
+        "enterprise",
+        "finance",
+        "deployment"
+      ],
+      "signal": "Deployment"
     }
   ]
 }
