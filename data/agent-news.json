@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-05T23:00:08.575Z",
+  "lastUpdated": "2026-05-06T23:00:09.068Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1024,6 +1024,29 @@
         "deployment"
       ],
       "signal": "Deployment"
+    },
+    {
+      "id": "hn-vibe-coding-and-agentic-engineering-are-20260506",
+      "title": {
+        "en": "Vibe coding and agentic engineering are getting closer than I'd like",
+        "zh": "氛围编码与智能体工程正逼近我难以接受的程度"
+      },
+      "summary": {
+        "en": "Simon Willison reflects on the blurring lines between vibe coding (AI-assisted coding) and agentic engineering, warning about the risks of over-reliance on autonomous agents and the need for human oversight.",
+        "zh": "Simon Willison 反思氛围编码（AI辅助编程）与智能体工程之间日益模糊的界限，警告过度依赖自主智能体的风险，并强调人类监督的必要性。"
+      },
+      "source": {
+        "name": "simonwillison.net",
+        "url": "https://simonwillison.net/2026/May/6/vibe-coding-and-agentic-engineering/"
+      },
+      "publishedAt": "2026-05-06T15:06:37.000Z",
+      "tags": [
+        "agents",
+        "best-practices",
+        "coding",
+        "tooling"
+      ],
+      "signal": "Insight"
     }
   ]
 }
