@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-06T23:00:09.068Z",
+  "lastUpdated": "2026-05-07T23:00:09.322Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1047,6 +1047,52 @@
         "tooling"
       ],
       "signal": "Insight"
+    },
+    {
+      "id": "hn-agents-need-control-flow-not-more-20260507",
+      "title": {
+        "en": "Agents need control flow, not more prompts",
+        "zh": "智能体需要控制流，而非更多提示"
+      },
+      "summary": {
+        "en": "Argues that current LLM agent failures stem from lack of structured control flow, and that adding more prompts or context is insufficient. Proposes using explicit state machines or programmatic orchestration for reliability.",
+        "zh": "认为当前LLM智能体的失败源于缺乏结构化控制流，增加提示或上下文不足以解决问题。提出使用显式状态机或程序化编排来提高可靠性。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://bsuh.bearblog.dev/agents-need-control-flow/"
+      },
+      "publishedAt": "2026-05-07T16:43:35.000Z",
+      "tags": [
+        "agents",
+        "best-practices",
+        "orchestration",
+        "research"
+      ],
+      "signal": "Insight"
+    },
+    {
+      "id": "hn-alphaevolve-gemini-powered-coding-agent-scaling-20260507",
+      "title": {
+        "en": "AlphaEvolve: Gemini-powered coding agent scaling impact across fields",
+        "zh": "AlphaEvolve：基于Gemini的编程智能体跨领域扩展影响力"
+      },
+      "summary": {
+        "en": "DeepMind announces AlphaEvolve, a coding agent powered by Gemini, demonstrating scalable impact across multiple scientific and engineering domains. The blog details performance benchmarks and real-world applications.",
+        "zh": "DeepMind 宣布推出 AlphaEvolve，这是一个由 Gemini 驱动的编程智能体，在多个科学和工程领域展示了可扩展的影响力。博客详细介绍了性能基准和实际应用。"
+      },
+      "source": {
+        "name": "DeepMind Blog",
+        "url": "https://deepmind.google/blog/alphaevolve-impact/"
+      },
+      "publishedAt": "2026-05-07T15:02:20.000Z",
+      "tags": [
+        "agents",
+        "coding",
+        "research",
+        "launch"
+      ],
+      "signal": "Launch"
     }
   ]
 }
