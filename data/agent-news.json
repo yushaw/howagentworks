@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-07T23:00:09.322Z",
+  "lastUpdated": "2026-05-12T23:00:07.681Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1090,6 +1090,29 @@
         "agents",
         "coding",
         "research",
+        "launch"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-needle-distilled-gemini-tool-calling-into-20260512",
+      "title": {
+        "en": "Needle: Distilled Gemini Tool Calling into a 26M Model",
+        "zh": "Needle：将Gemini工具调用蒸馏为26M参数模型"
+      },
+      "summary": {
+        "en": "Cactus Compute releases Needle, a 26M parameter model distilled from Gemini for tool calling and function calling, outperforming GPT-4o on BFCL v3 and Nexus benchmarks. Open-source on GitHub.",
+        "zh": "Cactus Compute发布Needle，一个从Gemini蒸馏的26M参数工具调用模型，在BFCL v3和Nexus基准测试上超越GPT-4o。开源在GitHub。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/cactus-compute/needle"
+      },
+      "publishedAt": "2026-05-12T18:03:11.000Z",
+      "tags": [
+        "agents",
+        "tooling",
+        "benchmarks",
         "launch"
       ],
       "signal": "Launch"
