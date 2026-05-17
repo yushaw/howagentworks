@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-12T23:00:07.681Z",
+  "lastUpdated": "2026-05-17T23:00:30.305Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1113,6 +1113,29 @@
         "agents",
         "tooling",
         "benchmarks",
+        "launch"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-zerostack-a-unix-inspired-coding-agent-20260516",
+      "title": {
+        "en": "Zerostack – A Unix-inspired coding agent written in pure Rust",
+        "zh": "Zerostack – 一个受Unix启发的纯Rust编码代理"
+      },
+      "summary": {
+        "en": "Zerostack is a coding agent built in pure Rust, inspired by Unix philosophy. It aims to provide a lightweight, composable agent for code generation and automation tasks.",
+        "zh": "Zerostack是一个纯Rust构建的编码代理，受Unix哲学启发，旨在提供轻量级、可组合的代理，用于代码生成和自动化任务。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://crates.io/crates/zerostack/1.0.0"
+      },
+      "publishedAt": "2026-05-16T22:23:50.000Z",
+      "tags": [
+        "coding",
+        "agents",
+        "rust",
         "launch"
       ],
       "signal": "Launch"
