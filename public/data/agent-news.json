@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-17T23:00:30.305Z",
+  "lastUpdated": "2026-05-19T23:00:30.352Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1137,6 +1137,29 @@
         "agents",
         "rust",
         "launch"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-forge-guardrails-boost-8b-model-from-20260519",
+      "title": {
+        "en": "Forge: Guardrails boost 8B model from 53% to 99% on agentic tasks",
+        "zh": "Forge：护栏将8B模型在智能体任务上的准确率从53%提升至99%"
+      },
+      "summary": {
+        "en": "Forge is an open-source guardrails framework that improves agentic task accuracy of an 8B model from 53% to 99% using structured outputs and validation. It supports function calling and JSON mode, and is model-agnostic.",
+        "zh": "Forge 是一个开源护栏框架，通过结构化输出和验证将8B模型在智能体任务上的准确率从53%提升至99%。支持函数调用和JSON模式，且与模型无关。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/antoinezambelli/forge"
+      },
+      "publishedAt": "2026-05-19T12:23:07.000Z",
+      "tags": [
+        "agents",
+        "framework",
+        "tooling",
+        "benchmarks"
       ],
       "signal": "Launch"
     }
