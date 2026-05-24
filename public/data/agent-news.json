@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-19T23:00:30.352Z",
+  "lastUpdated": "2026-05-24T23:00:30.114Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1162,6 +1162,28 @@
         "benchmarks"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-constraint-decay-the-fragility-of-llm-20260524",
+      "title": {
+        "en": "Constraint Decay: The Fragility of LLM Agents in Back End Code Generation",
+        "zh": "约束衰减：LLM智能体在后端代码生成中的脆弱性"
+      },
+      "summary": {
+        "en": "A research paper analyzing how LLM agents degrade in performance when generating backend code under evolving constraints, highlighting fundamental fragility in agentic code generation.",
+        "zh": "一篇研究论文，分析LLM智能体在不断变化的约束条件下生成后端代码时性能下降的现象，揭示了智能体代码生成中的根本脆弱性。"
+      },
+      "source": {
+        "name": "arXiv",
+        "url": "https://arxiv.org/abs/2605.06445"
+      },
+      "publishedAt": "2026-05-24T12:55:53.000Z",
+      "tags": [
+        "research",
+        "agents",
+        "coding"
+      ],
+      "signal": "Research"
     }
   ]
 }
