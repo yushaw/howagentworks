@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-24T23:00:30.114Z",
+  "lastUpdated": "2026-05-27T23:00:24.259Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1184,6 +1184,29 @@
         "coding"
       ],
       "signal": "Research"
+    },
+    {
+      "id": "hn-claude-code-as-a-daily-driver-20260527",
+      "title": {
+        "en": "Claude Code as a Daily Driver: Claude.md, Skills, Subagents, Plugins, and MCPs",
+        "zh": "Claude Code 日常使用指南：Claude.md、技能、子代理、插件和 MCP"
+      },
+      "summary": {
+        "en": "A comprehensive guide to using Claude Code as a daily driver, covering Claude.md, Skills, Subagents, Plugins, and MCPs for enhanced agentic workflows.",
+        "zh": "一份全面的 Claude Code 日常使用指南，涵盖 Claude.md、技能、子代理、插件和 MCP，以增强代理工作流程。"
+      },
+      "source": {
+        "name": "arps18.github.io",
+        "url": "https://arps18.github.io/posts/claude-code-mastery/"
+      },
+      "publishedAt": "2026-05-27T05:13:39.000Z",
+      "tags": [
+        "agents",
+        "coding",
+        "tooling",
+        "best-practices"
+      ],
+      "signal": "Insight"
     }
   ]
 }
