@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-05-27T23:00:24.259Z",
+  "lastUpdated": "2026-06-10T23:00:33.363Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1205,6 +1205,52 @@
         "coding",
         "tooling",
         "best-practices"
+      ],
+      "signal": "Insight"
+    },
+    {
+      "id": "hn-apache-burr-build-reliable-ai-agents-20260610",
+      "title": {
+        "en": "Apache Burr: Build reliable AI agents and applications",
+        "zh": "Apache Burr：构建可靠的AI智能体与应用"
+      },
+      "summary": {
+        "en": "Apache Burr is a new open-source framework for building reliable AI agents and applications. It provides state management, error handling, and observability for agentic workflows. The project has been accepted into the Apache Incubator, indicating strong community and governance.",
+        "zh": "Apache Burr 是一个新的开源框架，用于构建可靠的AI智能体与应用。它提供状态管理、错误处理和可观测性，支持智能体工作流。该项目已进入 Apache 孵化器，表明其拥有强大的社区和治理结构。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://burr.apache.org/"
+      },
+      "publishedAt": "2026-06-10T15:01:06.000Z",
+      "tags": [
+        "framework",
+        "agents",
+        "open-source",
+        "launch"
+      ],
+      "signal": "Launch"
+    },
+    {
+      "id": "hn-a-0-01-bank-transfer-could-20260610",
+      "title": {
+        "en": "A €0.01 bank transfer could compromise a banking AI agent",
+        "zh": "0.01欧元的银行转账可能危及银行AI代理"
+      },
+      "summary": {
+        "en": "Blue41 security researchers demonstrate how a tiny bank transfer can be used to inject malicious instructions into Bunq's financial AI assistant, leading to potential account takeover. The vulnerability was responsibly disclosed and fixed.",
+        "zh": "Blue41安全研究人员展示如何通过小额银行转账向Bunq的金融AI助手注入恶意指令，可能导致账户被接管。该漏洞已负责任地披露并修复。"
+      },
+      "source": {
+        "name": "Blue41",
+        "url": "https://blue41.com/blog/how-we-helped-bunq-secure-their-financial-ai-assistant/"
+      },
+      "publishedAt": "2026-06-10T13:39:11.000Z",
+      "tags": [
+        "security",
+        "agents",
+        "finance",
+        "research"
       ],
       "signal": "Insight"
     }
