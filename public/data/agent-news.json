@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-07-09T23:00:56.534Z",
+  "lastUpdated": "2026-07-12T23:00:57.805Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1276,6 +1276,52 @@
         "api"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-old-and-new-apps-via-modern-20260712",
+      "title": {
+        "en": "Old and new apps, via modern coding agents",
+        "zh": "通过现代编码代理构建新旧应用"
+      },
+      "summary": {
+        "en": "Terry Tao recounts his experience using coding agents (e.g., Claude, ChatGPT) to create both a classic game (Snake) and a new app (a LaTeX-to-MathJax converter). He provides detailed observations on agent strengths, weaknesses, and workflow integration, offering valuable insights for practitioners.",
+        "zh": "著名数学家陶哲轩分享了他使用编码代理（如Claude、ChatGPT）创建经典游戏（贪吃蛇）和新应用（LaTeX转MathJax转换器）的经验。他详细观察了代理的优势、局限及工作流集成，为实践者提供了宝贵见解。"
+      },
+      "source": {
+        "name": "Terry Tao's blog",
+        "url": "https://terrytao.wordpress.com/2026/07/11/old-and-new-apps-via-modern-coding-agents/"
+      },
+      "publishedAt": "2026-07-12T11:09:42.000Z",
+      "tags": [
+        "coding",
+        "agents",
+        "best-practices",
+        "tooling"
+      ],
+      "signal": "Insight"
+    },
+    {
+      "id": "hn-claude-code-sends-33k-tokens-before-20260712",
+      "title": {
+        "en": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+        "zh": "Claude Code 在读取提示前发送 33k 令牌；OpenCode 发送 7k"
+      },
+      "summary": {
+        "en": "A detailed analysis comparing the token overhead of Claude Code and OpenCode, revealing that Claude Code consumes 33k tokens before processing the user prompt, while OpenCode uses only 7k. The article breaks down the sources of overhead and discusses implications for cost and efficiency in agentic coding workflows.",
+        "zh": "一项详细分析比较了 Claude Code 和 OpenCode 的令牌开销，发现 Claude Code 在处理用户提示前消耗 33k 令牌，而 OpenCode 仅使用 7k。文章分解了开销来源，并讨论了对代理编码工作流成本和效率的影响。"
+      },
+      "source": {
+        "name": "systima.ai",
+        "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead"
+      },
+      "publishedAt": "2026-07-12T18:25:51.000Z",
+      "tags": [
+        "coding",
+        "agents",
+        "benchmarks",
+        "tooling"
+      ],
+      "signal": "Insight"
     }
   ]
 }
