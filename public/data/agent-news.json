@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-07-12T23:00:57.805Z",
+  "lastUpdated": "2026-07-14T23:00:57.344Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1322,6 +1322,29 @@
         "tooling"
       ],
       "signal": "Insight"
+    },
+    {
+      "id": "hn-juggler-open-source-gui-coding-agent-20260712",
+      "title": {
+        "en": "Juggler – Open-Source GUI Coding Agent by JUCE Creator",
+        "zh": "Juggler – 由JUCE创建者开发的开源GUI编程代理"
+      },
+      "summary": {
+        "en": "Juggler is an open-source GUI coding agent created by the developer of JUCE, a widely-used audio application framework. It aims to provide a visual interface for AI-assisted code generation and editing, targeting developers who prefer graphical interaction over command-line tools.",
+        "zh": "Juggler 是由广受欢迎的音频应用框架 JUCE 的创建者开发的开源 GUI 编程代理。它旨在为 AI 辅助的代码生成和编辑提供可视化界面，面向偏好图形交互而非命令行工具的开发者。"
+      },
+      "source": {
+        "name": "Hacker News",
+        "url": "https://github.com/juggler-ai/juggler"
+      },
+      "publishedAt": "2026-07-12T18:28:15.000Z",
+      "tags": [
+        "coding",
+        "open-source",
+        "gui",
+        "agent"
+      ],
+      "signal": "Launch"
     }
   ]
 }
