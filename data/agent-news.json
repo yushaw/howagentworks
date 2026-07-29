@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2025-01-17",
-  "lastUpdated": "2026-07-21T23:00:57.048Z",
+  "lastUpdated": "2026-07-29T23:00:11.784Z",
   "items": [
     {
       "id": "adobe-creative-cloud-agent-20250918",
@@ -1391,6 +1391,52 @@
         "deployment"
       ],
       "signal": "Launch"
+    },
+    {
+      "id": "hn-handbook-md-shows-long-policy-documents-20260729",
+      "title": {
+        "en": "Handbook.md Shows Long Policy Documents Do Not Reliably Govern Agents",
+        "zh": "Handbook.md 表明长政策文档无法可靠地约束智能体"
+      },
+      "summary": {
+        "en": "This paper empirically demonstrates that lengthy policy documents are ineffective at governing LLM agents, highlighting a critical limitation in current agent alignment approaches.",
+        "zh": "本文通过实验证明，冗长的政策文档无法有效约束 LLM 智能体，揭示了当前智能体对齐方法的一个关键局限。"
+      },
+      "source": {
+        "name": "arXiv",
+        "url": "https://arxiv.org/abs/2607.25398"
+      },
+      "publishedAt": "2026-07-29T13:01:57.000Z",
+      "tags": [
+        "research",
+        "agents",
+        "alignment",
+        "safety"
+      ],
+      "signal": "Research"
+    },
+    {
+      "id": "hn-anatomy-of-a-frontier-lab-agent-20260728",
+      "title": {
+        "en": "Anatomy of a Frontier Lab Agent Intrusion: A Timeline of the July 2026 Incident",
+        "zh": "前沿实验室代理入侵剖析：2026年7月事件时间线"
+      },
+      "summary": {
+        "en": "Hugging Face publishes a technical timeline of a July 2026 intrusion targeting frontier lab agents, detailing attack vectors, response, and lessons for agent security.",
+        "zh": "Hugging Face 发布2026年7月针对前沿实验室代理入侵的技术时间线，详述攻击向量、响应及代理安全教训。"
+      },
+      "source": {
+        "name": "Hugging Face Blog",
+        "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+      },
+      "publishedAt": "2026-07-28T20:28:33.000Z",
+      "tags": [
+        "agents",
+        "security",
+        "research",
+        "best-practices"
+      ],
+      "signal": "Insight"
     }
   ]
 }
